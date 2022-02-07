@@ -122,9 +122,3 @@ Open the project for Android Studio:
 ```
 apps/android/runner
 ```
-
-# Web Assembly Demo
-
-Visit:
-
-[https://nativium-modules.s3.amazonaws.com/demo/1.0.0/index.html](https://nativium-modules.s3.amazonaws.com/demo/1.0.0/index.html)
