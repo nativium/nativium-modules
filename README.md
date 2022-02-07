@@ -69,19 +69,6 @@ python nativium.py target windows run
 
 Obs: On Windows the terminal needs to be opened as `administrator`, otherwise the `symlinks` will not be created.
 
-# Build for WASM
-
-Execute the following commands to build for Web Assembly (WASM):
-
-```
-git clone https://github.com/nativium/nativium.git nativium
-cd nativium
-python nativium.py custom install --path=../custom
-python nativium.py target wasm prepare
-python nativium.py target wasm build
-python nativium.py target wasm serve
-```
-
 # Build for iOS
 
 Execute the following commands to build for iOS:
