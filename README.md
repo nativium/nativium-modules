@@ -36,7 +36,7 @@ Execute the following commands to build for Linux:
 git clone https://github.com/nativium/nativium.git nativium
 cd nativium
 python nativium.py custom install --path=../custom
-python nativium.py target linux prepare
+python nativium.py target linux setup
 python nativium.py target linux build
 python nativium.py target linux run
 ```
@@ -49,7 +49,7 @@ Execute the following commands to build for macOS:
 git clone https://github.com/nativium/nativium.git nativium
 cd nativium
 python nativium.py custom install --path=../custom
-python nativium.py target macos prepare
+python nativium.py target macos setup
 python nativium.py target macos build
 python nativium.py target macos run
 ```
@@ -62,7 +62,7 @@ Execute the following commands to build for Windows:
 git clone https://github.com/nativium/nativium.git nativium
 cd nativium
 python nativium.py custom install --path=../custom
-python nativium.py target windows prepare
+python nativium.py target windows setup
 python nativium.py target windows build
 python nativium.py target windows run
 ```
@@ -77,7 +77,7 @@ Execute the following commands to build for iOS:
 git clone https://github.com/nativium/nativium.git nativium
 cd nativium
 python nativium.py custom install --path=../custom
-python nativium.py target ios prepare
+python nativium.py target ios setup
 python nativium.py target ios build
 python nativium.py target ios package --no-framework
 python nativium.py target ios dist generate
@@ -98,7 +98,7 @@ Execute the following commands to build for Android:
 git clone https://github.com/nativium/nativium.git nativium
 cd nativium
 python nativium.py custom install --path=../custom
-python nativium.py target android prepare
+python nativium.py target android setup
 python nativium.py target android build
 python nativium.py target android package
 python nativium.py target android dist generate
