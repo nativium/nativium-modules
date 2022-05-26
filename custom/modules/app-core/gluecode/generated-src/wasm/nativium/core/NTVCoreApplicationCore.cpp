@@ -21,31 +21,73 @@ em::val NTVCoreApplicationCore::cppProxyMethods() {
 }
 
 em::val NTVCoreApplicationCore::shared() {
-    auto r = ::nativium::core::ApplicationCore::shared();
-    return ::djinni_generated::NTVCoreApplicationCore::fromCpp(r);
+    try {
+        auto r = ::nativium::core::ApplicationCore::shared();
+        return ::djinni_generated::NTVCoreApplicationCore::fromCpp(r);
+    }
+    catch(const std::exception& e) {
+        djinni::djinni_throw_native_exception(e);
+        throw;
+    }
 }
 void NTVCoreApplicationCore::initialize(const CppType& self, const em::val& w_initializationData,const em::val& w_deviceData) {
-    self->initialize(::djinni_generated::NTVDomainInitializationData::toCpp(w_initializationData),
-               ::djinni_generated::NTVDomainDeviceData::toCpp(w_deviceData));
+    try {
+        self->initialize(::djinni_generated::NTVDomainInitializationData::toCpp(w_initializationData),
+                   ::djinni_generated::NTVDomainDeviceData::toCpp(w_deviceData));
+    }
+    catch(const std::exception& e) {
+        djinni::djinni_throw_native_exception(e);
+        throw;
+    }
 }
 em::val NTVCoreApplicationCore::getInitializationData(const CppType& self) {
-    auto r = self->getInitializationData();
-    return ::djinni_generated::NTVDomainInitializationData::fromCpp(r);
+    try {
+        auto r = self->getInitializationData();
+        return ::djinni_generated::NTVDomainInitializationData::fromCpp(r);
+    }
+    catch(const std::exception& e) {
+        djinni::djinni_throw_native_exception(e);
+        throw;
+    }
 }
 em::val NTVCoreApplicationCore::getDeviceData(const CppType& self) {
-    auto r = self->getDeviceData();
-    return ::djinni_generated::NTVDomainDeviceData::fromCpp(r);
+    try {
+        auto r = self->getDeviceData();
+        return ::djinni_generated::NTVDomainDeviceData::fromCpp(r);
+    }
+    catch(const std::exception& e) {
+        djinni::djinni_throw_native_exception(e);
+        throw;
+    }
 }
 em::val NTVCoreApplicationCore::getCustomer(const CppType& self) {
-    auto r = self->getCustomer();
-    return ::djinni_generated::NTVDomainCustomer::fromCpp(r);
+    try {
+        auto r = self->getCustomer();
+        return ::djinni_generated::NTVDomainCustomer::fromCpp(r);
+    }
+    catch(const std::exception& e) {
+        djinni::djinni_throw_native_exception(e);
+        throw;
+    }
 }
 void NTVCoreApplicationCore::setCustomer(const CppType& self, const em::val& w_customer) {
-    self->setCustomer(::djinni_generated::NTVDomainCustomer::toCpp(w_customer));
+    try {
+        self->setCustomer(::djinni_generated::NTVDomainCustomer::toCpp(w_customer));
+    }
+    catch(const std::exception& e) {
+        djinni::djinni_throw_native_exception(e);
+        throw;
+    }
 }
 std::string NTVCoreApplicationCore::getVersion(const CppType& self) {
-    auto r = self->getVersion();
-    return ::djinni::String::fromCpp(r);
+    try {
+        auto r = self->getVersion();
+        return ::djinni::String::fromCpp(r);
+    }
+    catch(const std::exception& e) {
+        djinni::djinni_throw_native_exception(e);
+        throw;
+    }
 }
 
 EMSCRIPTEN_BINDINGS(nativium_core_application_core) {

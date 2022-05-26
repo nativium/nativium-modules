@@ -23,44 +23,110 @@ em::val NTVHttpServer::cppProxyMethods() {
 }
 
 em::val NTVHttpServer::shared() {
-    auto r = ::nativium::net::http::HttpServer::shared();
-    return ::djinni_generated::NTVHttpServer::fromCpp(r);
+    try {
+        auto r = ::nativium::net::http::HttpServer::shared();
+        return ::djinni_generated::NTVHttpServer::fromCpp(r);
+    }
+    catch(const std::exception& e) {
+        djinni::djinni_throw_native_exception(e);
+        throw;
+    }
 }
 void NTVHttpServer::initialize(const CppType& self, const em::val& w_config) {
-    self->initialize(::djinni_generated::NTVHttpServerConfig::toCpp(w_config));
+    try {
+        self->initialize(::djinni_generated::NTVHttpServerConfig::toCpp(w_config));
+    }
+    catch(const std::exception& e) {
+        djinni::djinni_throw_native_exception(e);
+        throw;
+    }
 }
 em::val NTVHttpServer::getConfig(const CppType& self) {
-    auto r = self->getConfig();
-    return ::djinni_generated::NTVHttpServerConfig::fromCpp(r);
+    try {
+        auto r = self->getConfig();
+        return ::djinni_generated::NTVHttpServerConfig::fromCpp(r);
+    }
+    catch(const std::exception& e) {
+        djinni::djinni_throw_native_exception(e);
+        throw;
+    }
 }
 void NTVHttpServer::start(const CppType& self) {
-    self->start();
+    try {
+        self->start();
+    }
+    catch(const std::exception& e) {
+        djinni::djinni_throw_native_exception(e);
+        throw;
+    }
 }
 void NTVHttpServer::stop(const CppType& self) {
-    self->stop();
+    try {
+        self->stop();
+    }
+    catch(const std::exception& e) {
+        djinni::djinni_throw_native_exception(e);
+        throw;
+    }
 }
 void NTVHttpServer::waitForTermination(const CppType& self) {
-    self->waitForTermination();
+    try {
+        self->waitForTermination();
+    }
+    catch(const std::exception& e) {
+        djinni::djinni_throw_native_exception(e);
+        throw;
+    }
 }
 int32_t NTVHttpServer::getSocketPort(const CppType& self) {
-    auto r = self->getSocketPort();
-    return ::djinni::I32::fromCpp(r);
+    try {
+        auto r = self->getSocketPort();
+        return ::djinni::I32::fromCpp(r);
+    }
+    catch(const std::exception& e) {
+        djinni::djinni_throw_native_exception(e);
+        throw;
+    }
 }
 std::string NTVHttpServer::getSocketHost(const CppType& self) {
-    auto r = self->getSocketHost();
-    return ::djinni::String::fromCpp(r);
+    try {
+        auto r = self->getSocketHost();
+        return ::djinni::String::fromCpp(r);
+    }
+    catch(const std::exception& e) {
+        djinni::djinni_throw_native_exception(e);
+        throw;
+    }
 }
 std::string NTVHttpServer::getSocketAddress(const CppType& self) {
-    auto r = self->getSocketAddress();
-    return ::djinni::String::fromCpp(r);
+    try {
+        auto r = self->getSocketAddress();
+        return ::djinni::String::fromCpp(r);
+    }
+    catch(const std::exception& e) {
+        djinni::djinni_throw_native_exception(e);
+        throw;
+    }
 }
 bool NTVHttpServer::isSocketSecure(const CppType& self) {
-    auto r = self->isSocketSecure();
-    return ::djinni::Bool::fromCpp(r);
+    try {
+        auto r = self->isSocketSecure();
+        return ::djinni::Bool::fromCpp(r);
+    }
+    catch(const std::exception& e) {
+        djinni::djinni_throw_native_exception(e);
+        throw;
+    }
 }
 bool NTVHttpServer::isRunning(const CppType& self) {
-    auto r = self->isRunning();
-    return ::djinni::Bool::fromCpp(r);
+    try {
+        auto r = self->isRunning();
+        return ::djinni::Bool::fromCpp(r);
+    }
+    catch(const std::exception& e) {
+        djinni::djinni_throw_native_exception(e);
+        throw;
+    }
 }
 
 EMSCRIPTEN_BINDINGS(nativium_net_http_http_server) {

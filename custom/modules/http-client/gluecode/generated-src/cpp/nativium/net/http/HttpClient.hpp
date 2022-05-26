@@ -16,19 +16,19 @@ class HttpClient {
 public:
     virtual ~HttpClient() = default;
 
-    static std::shared_ptr<HttpClient> shared();
+    static /*not-null*/ std::shared_ptr<HttpClient> shared();
 
-    virtual void setPlatformService(const std::shared_ptr<HttpClientPlatformService> & ps) = 0;
+    virtual void setPlatformService(const /*not-null*/ std::shared_ptr<HttpClientPlatformService> & ps) = 0;
 
-    virtual std::shared_ptr<HttpClientPlatformService> getPlatformService() = 0;
+    virtual /*not-null*/ std::shared_ptr<HttpClientPlatformService> getPlatformService() = 0;
 
     virtual bool hasPlatformService() = 0;
 
     virtual HttpResponse doRequest(const HttpRequest & request) = 0;
 
-    virtual void setLogger(const std::shared_ptr<HttpClientLogger> & logger) = 0;
+    virtual void setLogger(const /*not-null*/ std::shared_ptr<HttpClientLogger> & logger) = 0;
 
-    virtual std::shared_ptr<HttpClientLogger> getLogger() = 0;
+    virtual /*not-null*/ std::shared_ptr<HttpClientLogger> getLogger() = 0;
 
     virtual bool hasLogger() = 0;
 };

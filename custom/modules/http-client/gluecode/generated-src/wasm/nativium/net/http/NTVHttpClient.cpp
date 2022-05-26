@@ -23,34 +23,82 @@ em::val NTVHttpClient::cppProxyMethods() {
 }
 
 em::val NTVHttpClient::shared() {
-    auto r = ::nativium::net::http::HttpClient::shared();
-    return ::djinni_generated::NTVHttpClient::fromCpp(r);
+    try {
+        auto r = ::nativium::net::http::HttpClient::shared();
+        return ::djinni_generated::NTVHttpClient::fromCpp(r);
+    }
+    catch(const std::exception& e) {
+        djinni::djinni_throw_native_exception(e);
+        throw;
+    }
 }
 void NTVHttpClient::setPlatformService(const CppType& self, const em::val& w_ps) {
-    self->setPlatformService(::djinni_generated::NTVHttpClientPlatformService::toCpp(w_ps));
+    try {
+        self->setPlatformService(::djinni_generated::NTVHttpClientPlatformService::toCpp(w_ps));
+    }
+    catch(const std::exception& e) {
+        djinni::djinni_throw_native_exception(e);
+        throw;
+    }
 }
 em::val NTVHttpClient::getPlatformService(const CppType& self) {
-    auto r = self->getPlatformService();
-    return ::djinni_generated::NTVHttpClientPlatformService::fromCpp(r);
+    try {
+        auto r = self->getPlatformService();
+        return ::djinni_generated::NTVHttpClientPlatformService::fromCpp(r);
+    }
+    catch(const std::exception& e) {
+        djinni::djinni_throw_native_exception(e);
+        throw;
+    }
 }
 bool NTVHttpClient::hasPlatformService(const CppType& self) {
-    auto r = self->hasPlatformService();
-    return ::djinni::Bool::fromCpp(r);
+    try {
+        auto r = self->hasPlatformService();
+        return ::djinni::Bool::fromCpp(r);
+    }
+    catch(const std::exception& e) {
+        djinni::djinni_throw_native_exception(e);
+        throw;
+    }
 }
 em::val NTVHttpClient::doRequest(const CppType& self, const em::val& w_request) {
-    auto r = self->doRequest(::djinni_generated::NTVHttpRequest::toCpp(w_request));
-    return ::djinni_generated::NTVHttpResponse::fromCpp(r);
+    try {
+        auto r = self->doRequest(::djinni_generated::NTVHttpRequest::toCpp(w_request));
+        return ::djinni_generated::NTVHttpResponse::fromCpp(r);
+    }
+    catch(const std::exception& e) {
+        djinni::djinni_throw_native_exception(e);
+        throw;
+    }
 }
 void NTVHttpClient::setLogger(const CppType& self, const em::val& w_logger) {
-    self->setLogger(::djinni_generated::NTVHttpClientLogger::toCpp(w_logger));
+    try {
+        self->setLogger(::djinni_generated::NTVHttpClientLogger::toCpp(w_logger));
+    }
+    catch(const std::exception& e) {
+        djinni::djinni_throw_native_exception(e);
+        throw;
+    }
 }
 em::val NTVHttpClient::getLogger(const CppType& self) {
-    auto r = self->getLogger();
-    return ::djinni_generated::NTVHttpClientLogger::fromCpp(r);
+    try {
+        auto r = self->getLogger();
+        return ::djinni_generated::NTVHttpClientLogger::fromCpp(r);
+    }
+    catch(const std::exception& e) {
+        djinni::djinni_throw_native_exception(e);
+        throw;
+    }
 }
 bool NTVHttpClient::hasLogger(const CppType& self) {
-    auto r = self->hasLogger();
-    return ::djinni::Bool::fromCpp(r);
+    try {
+        auto r = self->hasLogger();
+        return ::djinni::Bool::fromCpp(r);
+    }
+    catch(const std::exception& e) {
+        djinni::djinni_throw_native_exception(e);
+        throw;
+    }
 }
 
 EMSCRIPTEN_BINDINGS(nativium_net_http_http_client) {

@@ -12,8 +12,14 @@ em::val NTVHelperEnvironmentHelper::cppProxyMethods() {
 }
 
 std::string NTVHelperEnvironmentHelper::getSecretKey() {
-    auto r = ::nativium::helper::EnvironmentHelper::getSecretKey();
-    return ::djinni::String::fromCpp(r);
+    try {
+        auto r = ::nativium::helper::EnvironmentHelper::getSecretKey();
+        return ::djinni::String::fromCpp(r);
+    }
+    catch(const std::exception& e) {
+        djinni::djinni_throw_native_exception(e);
+        throw;
+    }
 }
 
 EMSCRIPTEN_BINDINGS(nativium_helper_environment_helper) {

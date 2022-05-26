@@ -37,127 +37,277 @@ em::val NTVSharedData::cppProxyMethods() {
 }
 
 em::val NTVSharedData::shared() {
-    auto r = ::nativium::data::SharedData::shared();
-    return ::djinni_generated::NTVSharedData::fromCpp(r);
+    try {
+        auto r = ::nativium::data::SharedData::shared();
+        return ::djinni_generated::NTVSharedData::fromCpp(r);
+    }
+    catch(const std::exception& e) {
+        djinni::djinni_throw_native_exception(e);
+        throw;
+    }
 }
 void NTVSharedData::setPlatformService(const CppType& self, const em::val& w_ps) {
-    self->setPlatformService(::djinni_generated::NTVSharedDataPlatformService::toCpp(w_ps));
+    try {
+        self->setPlatformService(::djinni_generated::NTVSharedDataPlatformService::toCpp(w_ps));
+    }
+    catch(const std::exception& e) {
+        djinni::djinni_throw_native_exception(e);
+        throw;
+    }
 }
 em::val NTVSharedData::getPlatformService(const CppType& self) {
-    auto r = self->getPlatformService();
-    return ::djinni_generated::NTVSharedDataPlatformService::fromCpp(r);
+    try {
+        auto r = self->getPlatformService();
+        return ::djinni_generated::NTVSharedDataPlatformService::fromCpp(r);
+    }
+    catch(const std::exception& e) {
+        djinni::djinni_throw_native_exception(e);
+        throw;
+    }
 }
 bool NTVSharedData::hasPlatformService(const CppType& self) {
-    auto r = self->hasPlatformService();
-    return ::djinni::Bool::fromCpp(r);
+    try {
+        auto r = self->hasPlatformService();
+        return ::djinni::Bool::fromCpp(r);
+    }
+    catch(const std::exception& e) {
+        djinni::djinni_throw_native_exception(e);
+        throw;
+    }
 }
 void NTVSharedData::setString(const CppType& self, const std::string& w_groupName,const std::string& w_key,const std::string& w_value) {
-    self->setString(::djinni::String::toCpp(w_groupName),
-              ::djinni::String::toCpp(w_key),
-              ::djinni::String::toCpp(w_value));
+    try {
+        self->setString(::djinni::String::toCpp(w_groupName),
+                  ::djinni::String::toCpp(w_key),
+                  ::djinni::String::toCpp(w_value));
+    }
+    catch(const std::exception& e) {
+        djinni::djinni_throw_native_exception(e);
+        throw;
+    }
 }
 void NTVSharedData::setInteger(const CppType& self, const std::string& w_groupName,const std::string& w_key,int32_t w_value) {
-    self->setInteger(::djinni::String::toCpp(w_groupName),
-               ::djinni::String::toCpp(w_key),
-               ::djinni::I32::toCpp(w_value));
+    try {
+        self->setInteger(::djinni::String::toCpp(w_groupName),
+                   ::djinni::String::toCpp(w_key),
+                   ::djinni::I32::toCpp(w_value));
+    }
+    catch(const std::exception& e) {
+        djinni::djinni_throw_native_exception(e);
+        throw;
+    }
 }
 void NTVSharedData::setLong(const CppType& self, const std::string& w_groupName,const std::string& w_key,int64_t w_value) {
-    self->setLong(::djinni::String::toCpp(w_groupName),
-            ::djinni::String::toCpp(w_key),
-            ::djinni::I64::toCpp(w_value));
+    try {
+        self->setLong(::djinni::String::toCpp(w_groupName),
+                ::djinni::String::toCpp(w_key),
+                ::djinni::I64::toCpp(w_value));
+    }
+    catch(const std::exception& e) {
+        djinni::djinni_throw_native_exception(e);
+        throw;
+    }
 }
 void NTVSharedData::setBool(const CppType& self, const std::string& w_groupName,const std::string& w_key,bool w_value) {
-    self->setBool(::djinni::String::toCpp(w_groupName),
-            ::djinni::String::toCpp(w_key),
-            ::djinni::Bool::toCpp(w_value));
+    try {
+        self->setBool(::djinni::String::toCpp(w_groupName),
+                ::djinni::String::toCpp(w_key),
+                ::djinni::Bool::toCpp(w_value));
+    }
+    catch(const std::exception& e) {
+        djinni::djinni_throw_native_exception(e);
+        throw;
+    }
 }
 void NTVSharedData::setFloat(const CppType& self, const std::string& w_groupName,const std::string& w_key,float w_value) {
-    self->setFloat(::djinni::String::toCpp(w_groupName),
-             ::djinni::String::toCpp(w_key),
-             ::djinni::F32::toCpp(w_value));
+    try {
+        self->setFloat(::djinni::String::toCpp(w_groupName),
+                 ::djinni::String::toCpp(w_key),
+                 ::djinni::F32::toCpp(w_value));
+    }
+    catch(const std::exception& e) {
+        djinni::djinni_throw_native_exception(e);
+        throw;
+    }
 }
 void NTVSharedData::setDouble(const CppType& self, const std::string& w_groupName,const std::string& w_key,double w_value) {
-    self->setDouble(::djinni::String::toCpp(w_groupName),
-              ::djinni::String::toCpp(w_key),
-              ::djinni::F64::toCpp(w_value));
+    try {
+        self->setDouble(::djinni::String::toCpp(w_groupName),
+                  ::djinni::String::toCpp(w_key),
+                  ::djinni::F64::toCpp(w_value));
+    }
+    catch(const std::exception& e) {
+        djinni::djinni_throw_native_exception(e);
+        throw;
+    }
 }
 std::string NTVSharedData::getString(const CppType& self, const std::string& w_groupName,const std::string& w_key) {
-    auto r = self->getString(::djinni::String::toCpp(w_groupName),
-              ::djinni::String::toCpp(w_key));
-    return ::djinni::String::fromCpp(r);
+    try {
+        auto r = self->getString(::djinni::String::toCpp(w_groupName),
+                  ::djinni::String::toCpp(w_key));
+        return ::djinni::String::fromCpp(r);
+    }
+    catch(const std::exception& e) {
+        djinni::djinni_throw_native_exception(e);
+        throw;
+    }
 }
 int32_t NTVSharedData::getInteger(const CppType& self, const std::string& w_groupName,const std::string& w_key) {
-    auto r = self->getInteger(::djinni::String::toCpp(w_groupName),
-               ::djinni::String::toCpp(w_key));
-    return ::djinni::I32::fromCpp(r);
+    try {
+        auto r = self->getInteger(::djinni::String::toCpp(w_groupName),
+                   ::djinni::String::toCpp(w_key));
+        return ::djinni::I32::fromCpp(r);
+    }
+    catch(const std::exception& e) {
+        djinni::djinni_throw_native_exception(e);
+        throw;
+    }
 }
 int64_t NTVSharedData::getLong(const CppType& self, const std::string& w_groupName,const std::string& w_key) {
-    auto r = self->getLong(::djinni::String::toCpp(w_groupName),
-            ::djinni::String::toCpp(w_key));
-    return ::djinni::I64::fromCpp(r);
+    try {
+        auto r = self->getLong(::djinni::String::toCpp(w_groupName),
+                ::djinni::String::toCpp(w_key));
+        return ::djinni::I64::fromCpp(r);
+    }
+    catch(const std::exception& e) {
+        djinni::djinni_throw_native_exception(e);
+        throw;
+    }
 }
 bool NTVSharedData::getBool(const CppType& self, const std::string& w_groupName,const std::string& w_key) {
-    auto r = self->getBool(::djinni::String::toCpp(w_groupName),
-            ::djinni::String::toCpp(w_key));
-    return ::djinni::Bool::fromCpp(r);
+    try {
+        auto r = self->getBool(::djinni::String::toCpp(w_groupName),
+                ::djinni::String::toCpp(w_key));
+        return ::djinni::Bool::fromCpp(r);
+    }
+    catch(const std::exception& e) {
+        djinni::djinni_throw_native_exception(e);
+        throw;
+    }
 }
 float NTVSharedData::getFloat(const CppType& self, const std::string& w_groupName,const std::string& w_key) {
-    auto r = self->getFloat(::djinni::String::toCpp(w_groupName),
-             ::djinni::String::toCpp(w_key));
-    return ::djinni::F32::fromCpp(r);
+    try {
+        auto r = self->getFloat(::djinni::String::toCpp(w_groupName),
+                 ::djinni::String::toCpp(w_key));
+        return ::djinni::F32::fromCpp(r);
+    }
+    catch(const std::exception& e) {
+        djinni::djinni_throw_native_exception(e);
+        throw;
+    }
 }
 double NTVSharedData::getDouble(const CppType& self, const std::string& w_groupName,const std::string& w_key) {
-    auto r = self->getDouble(::djinni::String::toCpp(w_groupName),
-              ::djinni::String::toCpp(w_key));
-    return ::djinni::F64::fromCpp(r);
+    try {
+        auto r = self->getDouble(::djinni::String::toCpp(w_groupName),
+                  ::djinni::String::toCpp(w_key));
+        return ::djinni::F64::fromCpp(r);
+    }
+    catch(const std::exception& e) {
+        djinni::djinni_throw_native_exception(e);
+        throw;
+    }
 }
 std::string NTVSharedData::getStringWithDefaultValue(const CppType& self, const std::string& w_groupName,const std::string& w_key,const std::string& w_defaultValue) {
-    auto r = self->getStringWithDefaultValue(::djinni::String::toCpp(w_groupName),
-                              ::djinni::String::toCpp(w_key),
-                              ::djinni::String::toCpp(w_defaultValue));
-    return ::djinni::String::fromCpp(r);
+    try {
+        auto r = self->getStringWithDefaultValue(::djinni::String::toCpp(w_groupName),
+                                  ::djinni::String::toCpp(w_key),
+                                  ::djinni::String::toCpp(w_defaultValue));
+        return ::djinni::String::fromCpp(r);
+    }
+    catch(const std::exception& e) {
+        djinni::djinni_throw_native_exception(e);
+        throw;
+    }
 }
 int32_t NTVSharedData::getIntegerWithDefaultValue(const CppType& self, const std::string& w_groupName,const std::string& w_key,int32_t w_defaultValue) {
-    auto r = self->getIntegerWithDefaultValue(::djinni::String::toCpp(w_groupName),
-                               ::djinni::String::toCpp(w_key),
-                               ::djinni::I32::toCpp(w_defaultValue));
-    return ::djinni::I32::fromCpp(r);
+    try {
+        auto r = self->getIntegerWithDefaultValue(::djinni::String::toCpp(w_groupName),
+                                   ::djinni::String::toCpp(w_key),
+                                   ::djinni::I32::toCpp(w_defaultValue));
+        return ::djinni::I32::fromCpp(r);
+    }
+    catch(const std::exception& e) {
+        djinni::djinni_throw_native_exception(e);
+        throw;
+    }
 }
 int64_t NTVSharedData::getLongWithDefaultValue(const CppType& self, const std::string& w_groupName,const std::string& w_key,int64_t w_defaultValue) {
-    auto r = self->getLongWithDefaultValue(::djinni::String::toCpp(w_groupName),
-                            ::djinni::String::toCpp(w_key),
-                            ::djinni::I64::toCpp(w_defaultValue));
-    return ::djinni::I64::fromCpp(r);
+    try {
+        auto r = self->getLongWithDefaultValue(::djinni::String::toCpp(w_groupName),
+                                ::djinni::String::toCpp(w_key),
+                                ::djinni::I64::toCpp(w_defaultValue));
+        return ::djinni::I64::fromCpp(r);
+    }
+    catch(const std::exception& e) {
+        djinni::djinni_throw_native_exception(e);
+        throw;
+    }
 }
 bool NTVSharedData::getBoolWithDefaultValue(const CppType& self, const std::string& w_groupName,const std::string& w_key,bool w_defaultValue) {
-    auto r = self->getBoolWithDefaultValue(::djinni::String::toCpp(w_groupName),
-                            ::djinni::String::toCpp(w_key),
-                            ::djinni::Bool::toCpp(w_defaultValue));
-    return ::djinni::Bool::fromCpp(r);
+    try {
+        auto r = self->getBoolWithDefaultValue(::djinni::String::toCpp(w_groupName),
+                                ::djinni::String::toCpp(w_key),
+                                ::djinni::Bool::toCpp(w_defaultValue));
+        return ::djinni::Bool::fromCpp(r);
+    }
+    catch(const std::exception& e) {
+        djinni::djinni_throw_native_exception(e);
+        throw;
+    }
 }
 float NTVSharedData::getFloatWithDefaultValue(const CppType& self, const std::string& w_groupName,const std::string& w_key,float w_defaultValue) {
-    auto r = self->getFloatWithDefaultValue(::djinni::String::toCpp(w_groupName),
-                             ::djinni::String::toCpp(w_key),
-                             ::djinni::F32::toCpp(w_defaultValue));
-    return ::djinni::F32::fromCpp(r);
+    try {
+        auto r = self->getFloatWithDefaultValue(::djinni::String::toCpp(w_groupName),
+                                 ::djinni::String::toCpp(w_key),
+                                 ::djinni::F32::toCpp(w_defaultValue));
+        return ::djinni::F32::fromCpp(r);
+    }
+    catch(const std::exception& e) {
+        djinni::djinni_throw_native_exception(e);
+        throw;
+    }
 }
 double NTVSharedData::getDoubleWithDefaultValue(const CppType& self, const std::string& w_groupName,const std::string& w_key,double w_defaultValue) {
-    auto r = self->getDoubleWithDefaultValue(::djinni::String::toCpp(w_groupName),
-                              ::djinni::String::toCpp(w_key),
-                              ::djinni::F64::toCpp(w_defaultValue));
-    return ::djinni::F64::fromCpp(r);
+    try {
+        auto r = self->getDoubleWithDefaultValue(::djinni::String::toCpp(w_groupName),
+                                  ::djinni::String::toCpp(w_key),
+                                  ::djinni::F64::toCpp(w_defaultValue));
+        return ::djinni::F64::fromCpp(r);
+    }
+    catch(const std::exception& e) {
+        djinni::djinni_throw_native_exception(e);
+        throw;
+    }
 }
 bool NTVSharedData::has(const CppType& self, const std::string& w_groupName,const std::string& w_key) {
-    auto r = self->has(::djinni::String::toCpp(w_groupName),
-        ::djinni::String::toCpp(w_key));
-    return ::djinni::Bool::fromCpp(r);
+    try {
+        auto r = self->has(::djinni::String::toCpp(w_groupName),
+            ::djinni::String::toCpp(w_key));
+        return ::djinni::Bool::fromCpp(r);
+    }
+    catch(const std::exception& e) {
+        djinni::djinni_throw_native_exception(e);
+        throw;
+    }
 }
 void NTVSharedData::remove(const CppType& self, const std::string& w_groupName,const std::string& w_key) {
-    self->remove(::djinni::String::toCpp(w_groupName),
-           ::djinni::String::toCpp(w_key));
+    try {
+        self->remove(::djinni::String::toCpp(w_groupName),
+               ::djinni::String::toCpp(w_key));
+    }
+    catch(const std::exception& e) {
+        djinni::djinni_throw_native_exception(e);
+        throw;
+    }
 }
 void NTVSharedData::clear(const CppType& self, const std::string& w_groupName) {
-    self->clear(::djinni::String::toCpp(w_groupName));
+    try {
+        self->clear(::djinni::String::toCpp(w_groupName));
+    }
+    catch(const std::exception& e) {
+        djinni::djinni_throw_native_exception(e);
+        throw;
+    }
 }
 
 EMSCRIPTEN_BINDINGS(nativium_data_shared_data) {

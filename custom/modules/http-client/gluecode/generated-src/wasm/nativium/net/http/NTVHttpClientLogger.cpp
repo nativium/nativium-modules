@@ -16,11 +16,23 @@ em::val NTVHttpClientLogger::cppProxyMethods() {
 }
 
 void NTVHttpClientLogger::onRequest(const CppType& self, const em::val& w_request) {
-    self->onRequest(::djinni_generated::NTVHttpRequest::toCpp(w_request));
+    try {
+        self->onRequest(::djinni_generated::NTVHttpRequest::toCpp(w_request));
+    }
+    catch(const std::exception& e) {
+        djinni::djinni_throw_native_exception(e);
+        throw;
+    }
 }
 void NTVHttpClientLogger::onResponse(const CppType& self, const em::val& w_request,const em::val& w_response) {
-    self->onResponse(::djinni_generated::NTVHttpRequest::toCpp(w_request),
-               ::djinni_generated::NTVHttpResponse::toCpp(w_response));
+    try {
+        self->onResponse(::djinni_generated::NTVHttpRequest::toCpp(w_request),
+                   ::djinni_generated::NTVHttpResponse::toCpp(w_response));
+    }
+    catch(const std::exception& e) {
+        djinni::djinni_throw_native_exception(e);
+        throw;
+    }
 }
 
 EMSCRIPTEN_BINDINGS(nativium_net_http_http_client_logger) {

@@ -13,19 +13,43 @@ em::val NTVHelperCustomerHelper::cppProxyMethods() {
 }
 
 bool NTVHelperCustomerHelper::isLogged() {
-    auto r = ::nativium::helper::CustomerHelper::isLogged();
-    return ::djinni::Bool::fromCpp(r);
+    try {
+        auto r = ::nativium::helper::CustomerHelper::isLogged();
+        return ::djinni::Bool::fromCpp(r);
+    }
+    catch(const std::exception& e) {
+        djinni::djinni_throw_native_exception(e);
+        throw;
+    }
 }
 std::string NTVHelperCustomerHelper::getToken() {
-    auto r = ::nativium::helper::CustomerHelper::getToken();
-    return ::djinni::String::fromCpp(r);
+    try {
+        auto r = ::nativium::helper::CustomerHelper::getToken();
+        return ::djinni::String::fromCpp(r);
+    }
+    catch(const std::exception& e) {
+        djinni::djinni_throw_native_exception(e);
+        throw;
+    }
 }
 em::val NTVHelperCustomerHelper::create() {
-    auto r = ::nativium::helper::CustomerHelper::create();
-    return ::djinni_generated::NTVDomainCustomer::fromCpp(r);
+    try {
+        auto r = ::nativium::helper::CustomerHelper::create();
+        return ::djinni_generated::NTVDomainCustomer::fromCpp(r);
+    }
+    catch(const std::exception& e) {
+        djinni::djinni_throw_native_exception(e);
+        throw;
+    }
 }
 void NTVHelperCustomerHelper::onCustomerLogin(const em::val& w_customer) {
-    ::nativium::helper::CustomerHelper::onCustomerLogin(::djinni_generated::NTVDomainCustomer::toCpp(w_customer));
+    try {
+        ::nativium::helper::CustomerHelper::onCustomerLogin(::djinni_generated::NTVDomainCustomer::toCpp(w_customer));
+    }
+    catch(const std::exception& e) {
+        djinni::djinni_throw_native_exception(e);
+        throw;
+    }
 }
 
 EMSCRIPTEN_BINDINGS(nativium_helper_customer_helper) {

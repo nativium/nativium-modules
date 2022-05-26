@@ -15,11 +15,11 @@ class Logger {
 public:
     virtual ~Logger() = default;
 
-    static std::shared_ptr<Logger> shared();
+    static /*not-null*/ std::shared_ptr<Logger> shared();
 
-    virtual void setPlatformService(const std::shared_ptr<LoggerPlatformService> & ps) = 0;
+    virtual void setPlatformService(const /*not-null*/ std::shared_ptr<LoggerPlatformService> & ps) = 0;
 
-    virtual std::shared_ptr<LoggerPlatformService> getPlatformService() = 0;
+    virtual /*not-null*/ std::shared_ptr<LoggerPlatformService> getPlatformService() = 0;
 
     virtual bool hasPlatformService() = 0;
 

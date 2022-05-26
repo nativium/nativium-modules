@@ -13,8 +13,14 @@ em::val NTVHelperTodoHelper::cppProxyMethods() {
 }
 
 em::val NTVHelperTodoHelper::create() {
-    auto r = ::nativium::helper::TodoHelper::create();
-    return ::djinni_generated::NTVDomainTodo::fromCpp(r);
+    try {
+        auto r = ::nativium::helper::TodoHelper::create();
+        return ::djinni_generated::NTVDomainTodo::fromCpp(r);
+    }
+    catch(const std::exception& e) {
+        djinni::djinni_throw_native_exception(e);
+        throw;
+    }
 }
 
 EMSCRIPTEN_BINDINGS(nativium_helper_todo_helper) {

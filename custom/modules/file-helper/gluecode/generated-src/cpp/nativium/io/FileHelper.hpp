@@ -16,11 +16,11 @@ class FileHelper {
 public:
     virtual ~FileHelper() = default;
 
-    static std::shared_ptr<FileHelper> shared();
+    static /*not-null*/ std::shared_ptr<FileHelper> shared();
 
-    virtual void setPlatformService(const std::shared_ptr<FileHelperPlatformService> & ps) = 0;
+    virtual void setPlatformService(const /*not-null*/ std::shared_ptr<FileHelperPlatformService> & ps) = 0;
 
-    virtual std::shared_ptr<FileHelperPlatformService> getPlatformService() = 0;
+    virtual /*not-null*/ std::shared_ptr<FileHelperPlatformService> getPlatformService() = 0;
 
     virtual bool hasPlatformService() = 0;
 

@@ -16,7 +16,10 @@ struct NTVLoggerPlatformService : ::djinni::JsInterface<::nativium::util::Logger
 
     static CppType toCpp(JsType j) { return _fromJs(j); }
     static JsType fromCppOpt(const CppOptType& c) { return {_toJs(c)}; }
-    static JsType fromCpp(const CppType& c) { return fromCppOpt(c); }
+    static JsType fromCpp(const CppType& c) {
+        djinni::checkForNull(c.get(), "NTVLoggerPlatformService::fromCpp");
+        return fromCppOpt(c);
+    }
 
 
 };

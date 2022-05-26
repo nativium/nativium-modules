@@ -15,8 +15,14 @@ em::val NTVHttpClientPlatformService::cppProxyMethods() {
 }
 
 em::val NTVHttpClientPlatformService::doRequest(const CppType& self, const em::val& w_request) {
-    auto r = self->doRequest(::djinni_generated::NTVHttpRequest::toCpp(w_request));
-    return ::djinni_generated::NTVHttpResponse::fromCpp(r);
+    try {
+        auto r = self->doRequest(::djinni_generated::NTVHttpRequest::toCpp(w_request));
+        return ::djinni_generated::NTVHttpResponse::fromCpp(r);
+    }
+    catch(const std::exception& e) {
+        djinni::djinni_throw_native_exception(e);
+        throw;
+    }
 }
 
 EMSCRIPTEN_BINDINGS(nativium_net_http_http_client_platform_service) {

@@ -15,11 +15,11 @@ class SharedData {
 public:
     virtual ~SharedData() = default;
 
-    static std::shared_ptr<SharedData> shared();
+    static /*not-null*/ std::shared_ptr<SharedData> shared();
 
-    virtual void setPlatformService(const std::shared_ptr<SharedDataPlatformService> & ps) = 0;
+    virtual void setPlatformService(const /*not-null*/ std::shared_ptr<SharedDataPlatformService> & ps) = 0;
 
-    virtual std::shared_ptr<SharedDataPlatformService> getPlatformService() = 0;
+    virtual /*not-null*/ std::shared_ptr<SharedDataPlatformService> getPlatformService() = 0;
 
     virtual bool hasPlatformService() = 0;
 

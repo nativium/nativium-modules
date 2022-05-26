@@ -13,9 +13,15 @@ em::val NTVSystemServiceCustomerSystemService::cppProxyMethods() {
 }
 
 em::val NTVSystemServiceCustomerSystemService::login(const std::string& w_username,const std::string& w_password) {
-    auto r = ::nativium::systemservice::CustomerSystemService::login(::djinni::String::toCpp(w_username),
-          ::djinni::String::toCpp(w_password));
-    return ::djinni_generated::NTVSystemServiceCustomerSystemServiceLoginData::fromCpp(r);
+    try {
+        auto r = ::nativium::systemservice::CustomerSystemService::login(::djinni::String::toCpp(w_username),
+              ::djinni::String::toCpp(w_password));
+        return ::djinni_generated::NTVSystemServiceCustomerSystemServiceLoginData::fromCpp(r);
+    }
+    catch(const std::exception& e) {
+        djinni::djinni_throw_native_exception(e);
+        throw;
+    }
 }
 
 EMSCRIPTEN_BINDINGS(nativium_systemservice_customer_system_service) {
