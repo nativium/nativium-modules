@@ -12,30 +12,66 @@ em::val NTVStringHelper::cppProxyMethods() {
 }
 
 std::string NTVStringHelper::trim(const std::string& w_value) {
-    auto r = ::nativium::helper::StringHelper::trim(::djinni::String::toCpp(w_value));
-    return ::djinni::String::fromCpp(r);
+    try {
+        auto r = ::nativium::helper::StringHelper::trim(::djinni::String::toCpp(w_value));
+        return ::djinni::String::fromCpp(r);
+    }
+    catch(const std::exception& e) {
+        djinni::djinni_throw_native_exception(e);
+        throw;
+    }
 }
 std::string NTVStringHelper::leftTrim(const std::string& w_value) {
-    auto r = ::nativium::helper::StringHelper::leftTrim(::djinni::String::toCpp(w_value));
-    return ::djinni::String::fromCpp(r);
+    try {
+        auto r = ::nativium::helper::StringHelper::leftTrim(::djinni::String::toCpp(w_value));
+        return ::djinni::String::fromCpp(r);
+    }
+    catch(const std::exception& e) {
+        djinni::djinni_throw_native_exception(e);
+        throw;
+    }
 }
 std::string NTVStringHelper::rightTrim(const std::string& w_value) {
-    auto r = ::nativium::helper::StringHelper::rightTrim(::djinni::String::toCpp(w_value));
-    return ::djinni::String::fromCpp(r);
+    try {
+        auto r = ::nativium::helper::StringHelper::rightTrim(::djinni::String::toCpp(w_value));
+        return ::djinni::String::fromCpp(r);
+    }
+    catch(const std::exception& e) {
+        djinni::djinni_throw_native_exception(e);
+        throw;
+    }
 }
 std::string NTVStringHelper::toLower(const std::string& w_value) {
-    auto r = ::nativium::helper::StringHelper::toLower(::djinni::String::toCpp(w_value));
-    return ::djinni::String::fromCpp(r);
+    try {
+        auto r = ::nativium::helper::StringHelper::toLower(::djinni::String::toCpp(w_value));
+        return ::djinni::String::fromCpp(r);
+    }
+    catch(const std::exception& e) {
+        djinni::djinni_throw_native_exception(e);
+        throw;
+    }
 }
 std::string NTVStringHelper::toUpper(const std::string& w_value) {
-    auto r = ::nativium::helper::StringHelper::toUpper(::djinni::String::toCpp(w_value));
-    return ::djinni::String::fromCpp(r);
+    try {
+        auto r = ::nativium::helper::StringHelper::toUpper(::djinni::String::toCpp(w_value));
+        return ::djinni::String::fromCpp(r);
+    }
+    catch(const std::exception& e) {
+        djinni::djinni_throw_native_exception(e);
+        throw;
+    }
 }
 em::val NTVStringHelper::split(const std::string& w_text,const std::string& w_sep,bool w_trimEmpty) {
-    auto r = ::nativium::helper::StringHelper::split(::djinni::String::toCpp(w_text),
-          ::djinni::String::toCpp(w_sep),
-          ::djinni::Bool::toCpp(w_trimEmpty));
-    return ::djinni::List<::djinni::String>::fromCpp(r);
+    try {
+        auto r = ::nativium::helper::StringHelper::split(::djinni::String::toCpp(w_text),
+              ::djinni::String::toCpp(w_sep),
+              ::djinni::Bool::toCpp(w_trimEmpty));
+        return ::djinni::List<::djinni::String>::fromCpp(r);
+    }
+    catch(const std::exception& e) {
+        djinni::djinni_throw_native_exception(e);
+        throw;
+    }
 }
 
 EMSCRIPTEN_BINDINGS(nativium_helper_string_helper) {

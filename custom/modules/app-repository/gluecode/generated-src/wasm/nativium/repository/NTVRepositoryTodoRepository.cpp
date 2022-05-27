@@ -13,45 +13,105 @@ em::val NTVRepositoryTodoRepository::cppProxyMethods() {
 }
 
 void NTVRepositoryTodoRepository::truncate() {
-    ::nativium::repository::TodoRepository::truncate();
+    try {
+        ::nativium::repository::TodoRepository::truncate();
+    }
+    catch(const std::exception& e) {
+        djinni::djinni_throw_native_exception(e);
+        throw;
+    }
 }
 em::val NTVRepositoryTodoRepository::findById(int64_t w_id) {
-    auto r = ::nativium::repository::TodoRepository::findById(::djinni::I64::toCpp(w_id));
-    return ::djinni_generated::NTVDomainTodo::fromCpp(r);
+    try {
+        auto r = ::nativium::repository::TodoRepository::findById(::djinni::I64::toCpp(w_id));
+        return ::djinni_generated::NTVDomainTodo::fromCpp(r);
+    }
+    catch(const std::exception& e) {
+        djinni::djinni_throw_native_exception(e);
+        throw;
+    }
 }
 em::val NTVRepositoryTodoRepository::findAllOrderByCreatedAtDesc() {
-    auto r = ::nativium::repository::TodoRepository::findAllOrderByCreatedAtDesc();
-    return ::djinni::List<::djinni_generated::NTVDomainTodo>::fromCpp(r);
+    try {
+        auto r = ::nativium::repository::TodoRepository::findAllOrderByCreatedAtDesc();
+        return ::djinni::List<::djinni_generated::NTVDomainTodo>::fromCpp(r);
+    }
+    catch(const std::exception& e) {
+        djinni::djinni_throw_native_exception(e);
+        throw;
+    }
 }
 em::val NTVRepositoryTodoRepository::findByTitle(const std::string& w_title) {
-    auto r = ::nativium::repository::TodoRepository::findByTitle(::djinni::String::toCpp(w_title));
-    return ::djinni::List<::djinni_generated::NTVDomainTodo>::fromCpp(r);
+    try {
+        auto r = ::nativium::repository::TodoRepository::findByTitle(::djinni::String::toCpp(w_title));
+        return ::djinni::List<::djinni_generated::NTVDomainTodo>::fromCpp(r);
+    }
+    catch(const std::exception& e) {
+        djinni::djinni_throw_native_exception(e);
+        throw;
+    }
 }
 bool NTVRepositoryTodoRepository::removeById(int64_t w_id) {
-    auto r = ::nativium::repository::TodoRepository::removeById(::djinni::I64::toCpp(w_id));
-    return ::djinni::Bool::fromCpp(r);
+    try {
+        auto r = ::nativium::repository::TodoRepository::removeById(::djinni::I64::toCpp(w_id));
+        return ::djinni::Bool::fromCpp(r);
+    }
+    catch(const std::exception& e) {
+        djinni::djinni_throw_native_exception(e);
+        throw;
+    }
 }
 int64_t NTVRepositoryTodoRepository::update(int64_t w_id,const em::val& w_todo) {
-    auto r = ::nativium::repository::TodoRepository::update(::djinni::I64::toCpp(w_id),
-           ::djinni_generated::NTVDomainTodo::toCpp(w_todo));
-    return ::djinni::I64::fromCpp(r);
+    try {
+        auto r = ::nativium::repository::TodoRepository::update(::djinni::I64::toCpp(w_id),
+               ::djinni_generated::NTVDomainTodo::toCpp(w_todo));
+        return ::djinni::I64::fromCpp(r);
+    }
+    catch(const std::exception& e) {
+        djinni::djinni_throw_native_exception(e);
+        throw;
+    }
 }
 int64_t NTVRepositoryTodoRepository::insert(const em::val& w_todo) {
-    auto r = ::nativium::repository::TodoRepository::insert(::djinni_generated::NTVDomainTodo::toCpp(w_todo));
-    return ::djinni::I64::fromCpp(r);
+    try {
+        auto r = ::nativium::repository::TodoRepository::insert(::djinni_generated::NTVDomainTodo::toCpp(w_todo));
+        return ::djinni::I64::fromCpp(r);
+    }
+    catch(const std::exception& e) {
+        djinni::djinni_throw_native_exception(e);
+        throw;
+    }
 }
 int64_t NTVRepositoryTodoRepository::add(const em::val& w_todo) {
-    auto r = ::nativium::repository::TodoRepository::add(::djinni_generated::NTVDomainTodo::toCpp(w_todo));
-    return ::djinni::I64::fromCpp(r);
+    try {
+        auto r = ::nativium::repository::TodoRepository::add(::djinni_generated::NTVDomainTodo::toCpp(w_todo));
+        return ::djinni::I64::fromCpp(r);
+    }
+    catch(const std::exception& e) {
+        djinni::djinni_throw_native_exception(e);
+        throw;
+    }
 }
 bool NTVRepositoryTodoRepository::setDoneById(int64_t w_id,bool w_done) {
-    auto r = ::nativium::repository::TodoRepository::setDoneById(::djinni::I64::toCpp(w_id),
-                ::djinni::Bool::toCpp(w_done));
-    return ::djinni::Bool::fromCpp(r);
+    try {
+        auto r = ::nativium::repository::TodoRepository::setDoneById(::djinni::I64::toCpp(w_id),
+                    ::djinni::Bool::toCpp(w_done));
+        return ::djinni::Bool::fromCpp(r);
+    }
+    catch(const std::exception& e) {
+        djinni::djinni_throw_native_exception(e);
+        throw;
+    }
 }
 int64_t NTVRepositoryTodoRepository::count() {
-    auto r = ::nativium::repository::TodoRepository::count();
-    return ::djinni::I64::fromCpp(r);
+    try {
+        auto r = ::nativium::repository::TodoRepository::count();
+        return ::djinni::I64::fromCpp(r);
+    }
+    catch(const std::exception& e) {
+        djinni::djinni_throw_native_exception(e);
+        throw;
+    }
 }
 
 EMSCRIPTEN_BINDINGS(nativium_repository_todo_repository) {

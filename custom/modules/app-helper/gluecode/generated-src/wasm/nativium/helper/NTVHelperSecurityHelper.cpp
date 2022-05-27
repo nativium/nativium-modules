@@ -12,8 +12,14 @@ em::val NTVHelperSecurityHelper::cppProxyMethods() {
 }
 
 std::string NTVHelperSecurityHelper::generateUuidV4() {
-    auto r = ::nativium::helper::SecurityHelper::generateUuidV4();
-    return ::djinni::String::fromCpp(r);
+    try {
+        auto r = ::nativium::helper::SecurityHelper::generateUuidV4();
+        return ::djinni::String::fromCpp(r);
+    }
+    catch(const std::exception& e) {
+        djinni::djinni_throw_native_exception(e);
+        throw;
+    }
 }
 
 EMSCRIPTEN_BINDINGS(nativium_helper_security_helper) {

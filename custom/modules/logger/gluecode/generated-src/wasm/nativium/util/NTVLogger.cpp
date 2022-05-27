@@ -19,44 +19,116 @@ em::val NTVLogger::cppProxyMethods() {
 }
 
 em::val NTVLogger::shared() {
-    auto r = ::nativium::util::Logger::shared();
-    return ::djinni_generated::NTVLogger::fromCpp(r);
+    try {
+        auto r = ::nativium::util::Logger::shared();
+        return ::djinni_generated::NTVLogger::fromCpp(r);
+    }
+    catch(const std::exception& e) {
+        djinni::djinni_throw_native_exception(e);
+        throw;
+    }
 }
 void NTVLogger::setPlatformService(const CppType& self, const em::val& w_ps) {
-    self->setPlatformService(::djinni_generated::NTVLoggerPlatformService::toCpp(w_ps));
+    try {
+        self->setPlatformService(::djinni_generated::NTVLoggerPlatformService::toCpp(w_ps));
+    }
+    catch(const std::exception& e) {
+        djinni::djinni_throw_native_exception(e);
+        throw;
+    }
 }
 em::val NTVLogger::getPlatformService(const CppType& self) {
-    auto r = self->getPlatformService();
-    return ::djinni_generated::NTVLoggerPlatformService::fromCpp(r);
+    try {
+        auto r = self->getPlatformService();
+        return ::djinni_generated::NTVLoggerPlatformService::fromCpp(r);
+    }
+    catch(const std::exception& e) {
+        djinni::djinni_throw_native_exception(e);
+        throw;
+    }
 }
 bool NTVLogger::hasPlatformService(const CppType& self) {
-    auto r = self->hasPlatformService();
-    return ::djinni::Bool::fromCpp(r);
+    try {
+        auto r = self->hasPlatformService();
+        return ::djinni::Bool::fromCpp(r);
+    }
+    catch(const std::exception& e) {
+        djinni::djinni_throw_native_exception(e);
+        throw;
+    }
 }
 bool NTVLogger::allowedLevel(const CppType& self, int32_t w_level) {
-    auto r = self->allowedLevel(::djinni_generated::NTVLoggerLevel::toCpp(w_level));
-    return ::djinni::Bool::fromCpp(r);
+    try {
+        auto r = self->allowedLevel(::djinni_generated::NTVLoggerLevel::toCpp(w_level));
+        return ::djinni::Bool::fromCpp(r);
+    }
+    catch(const std::exception& e) {
+        djinni::djinni_throw_native_exception(e);
+        throw;
+    }
 }
 void NTVLogger::setLevel(const CppType& self, int32_t w_level) {
-    self->setLevel(::djinni_generated::NTVLoggerLevel::toCpp(w_level));
+    try {
+        self->setLevel(::djinni_generated::NTVLoggerLevel::toCpp(w_level));
+    }
+    catch(const std::exception& e) {
+        djinni::djinni_throw_native_exception(e);
+        throw;
+    }
 }
 void NTVLogger::v(const std::string& w_message) {
-    ::nativium::util::Logger::v(::djinni::String::toCpp(w_message));
+    try {
+        ::nativium::util::Logger::v(::djinni::String::toCpp(w_message));
+    }
+    catch(const std::exception& e) {
+        djinni::djinni_throw_native_exception(e);
+        throw;
+    }
 }
 void NTVLogger::d(const std::string& w_message) {
-    ::nativium::util::Logger::d(::djinni::String::toCpp(w_message));
+    try {
+        ::nativium::util::Logger::d(::djinni::String::toCpp(w_message));
+    }
+    catch(const std::exception& e) {
+        djinni::djinni_throw_native_exception(e);
+        throw;
+    }
 }
 void NTVLogger::i(const std::string& w_message) {
-    ::nativium::util::Logger::i(::djinni::String::toCpp(w_message));
+    try {
+        ::nativium::util::Logger::i(::djinni::String::toCpp(w_message));
+    }
+    catch(const std::exception& e) {
+        djinni::djinni_throw_native_exception(e);
+        throw;
+    }
 }
 void NTVLogger::w(const std::string& w_message) {
-    ::nativium::util::Logger::w(::djinni::String::toCpp(w_message));
+    try {
+        ::nativium::util::Logger::w(::djinni::String::toCpp(w_message));
+    }
+    catch(const std::exception& e) {
+        djinni::djinni_throw_native_exception(e);
+        throw;
+    }
 }
 void NTVLogger::e(const std::string& w_message) {
-    ::nativium::util::Logger::e(::djinni::String::toCpp(w_message));
+    try {
+        ::nativium::util::Logger::e(::djinni::String::toCpp(w_message));
+    }
+    catch(const std::exception& e) {
+        djinni::djinni_throw_native_exception(e);
+        throw;
+    }
 }
 void NTVLogger::setGroup(const std::string& w_group) {
-    ::nativium::util::Logger::setGroup(::djinni::String::toCpp(w_group));
+    try {
+        ::nativium::util::Logger::setGroup(::djinni::String::toCpp(w_group));
+    }
+    catch(const std::exception& e) {
+        djinni::djinni_throw_native_exception(e);
+        throw;
+    }
 }
 
 EMSCRIPTEN_BINDINGS(nativium_util_logger) {

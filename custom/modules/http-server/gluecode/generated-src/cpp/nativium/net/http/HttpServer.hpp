@@ -15,7 +15,7 @@ class HttpServer {
 public:
     virtual ~HttpServer() = default;
 
-    static std::shared_ptr<HttpServer> shared();
+    static /*not-null*/ std::shared_ptr<HttpServer> shared();
 
     virtual void initialize(const HttpServerConfig & config) = 0;
 

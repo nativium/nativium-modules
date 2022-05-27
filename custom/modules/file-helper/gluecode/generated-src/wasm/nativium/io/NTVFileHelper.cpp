@@ -16,108 +16,258 @@ em::val NTVFileHelper::cppProxyMethods() {
 }
 
 em::val NTVFileHelper::shared() {
-    auto r = ::nativium::io::FileHelper::shared();
-    return ::djinni_generated::NTVFileHelper::fromCpp(r);
+    try {
+        auto r = ::nativium::io::FileHelper::shared();
+        return ::djinni_generated::NTVFileHelper::fromCpp(r);
+    }
+    catch(const std::exception& e) {
+        djinni::djinni_throw_native_exception(e);
+        throw;
+    }
 }
 void NTVFileHelper::setPlatformService(const CppType& self, const em::val& w_ps) {
-    self->setPlatformService(::djinni_generated::NTVFileHelperPlatformService::toCpp(w_ps));
+    try {
+        self->setPlatformService(::djinni_generated::NTVFileHelperPlatformService::toCpp(w_ps));
+    }
+    catch(const std::exception& e) {
+        djinni::djinni_throw_native_exception(e);
+        throw;
+    }
 }
 em::val NTVFileHelper::getPlatformService(const CppType& self) {
-    auto r = self->getPlatformService();
-    return ::djinni_generated::NTVFileHelperPlatformService::fromCpp(r);
+    try {
+        auto r = self->getPlatformService();
+        return ::djinni_generated::NTVFileHelperPlatformService::fromCpp(r);
+    }
+    catch(const std::exception& e) {
+        djinni::djinni_throw_native_exception(e);
+        throw;
+    }
 }
 bool NTVFileHelper::hasPlatformService(const CppType& self) {
-    auto r = self->hasPlatformService();
-    return ::djinni::Bool::fromCpp(r);
+    try {
+        auto r = self->hasPlatformService();
+        return ::djinni::Bool::fromCpp(r);
+    }
+    catch(const std::exception& e) {
+        djinni::djinni_throw_native_exception(e);
+        throw;
+    }
 }
 bool NTVFileHelper::createFile(const std::string& w_path) {
-    auto r = ::nativium::io::FileHelper::createFile(::djinni::String::toCpp(w_path));
-    return ::djinni::Bool::fromCpp(r);
+    try {
+        auto r = ::nativium::io::FileHelper::createFile(::djinni::String::toCpp(w_path));
+        return ::djinni::Bool::fromCpp(r);
+    }
+    catch(const std::exception& e) {
+        djinni::djinni_throw_native_exception(e);
+        throw;
+    }
 }
 bool NTVFileHelper::createFileWithStringContent(const std::string& w_path,const std::string& w_content) {
-    auto r = ::nativium::io::FileHelper::createFileWithStringContent(::djinni::String::toCpp(w_path),
-                                ::djinni::String::toCpp(w_content));
-    return ::djinni::Bool::fromCpp(r);
+    try {
+        auto r = ::nativium::io::FileHelper::createFileWithStringContent(::djinni::String::toCpp(w_path),
+                                    ::djinni::String::toCpp(w_content));
+        return ::djinni::Bool::fromCpp(r);
+    }
+    catch(const std::exception& e) {
+        djinni::djinni_throw_native_exception(e);
+        throw;
+    }
 }
 bool NTVFileHelper::createFileWithBinaryContent(const std::string& w_path,const em::val& w_content) {
-    auto r = ::nativium::io::FileHelper::createFileWithBinaryContent(::djinni::String::toCpp(w_path),
-                                ::djinni::Binary::toCpp(w_content));
-    return ::djinni::Bool::fromCpp(r);
+    try {
+        auto r = ::nativium::io::FileHelper::createFileWithBinaryContent(::djinni::String::toCpp(w_path),
+                                    ::djinni::Binary::toCpp(w_content));
+        return ::djinni::Bool::fromCpp(r);
+    }
+    catch(const std::exception& e) {
+        djinni::djinni_throw_native_exception(e);
+        throw;
+    }
 }
 bool NTVFileHelper::createDir(const std::string& w_path) {
-    auto r = ::nativium::io::FileHelper::createDir(::djinni::String::toCpp(w_path));
-    return ::djinni::Bool::fromCpp(r);
+    try {
+        auto r = ::nativium::io::FileHelper::createDir(::djinni::String::toCpp(w_path));
+        return ::djinni::Bool::fromCpp(r);
+    }
+    catch(const std::exception& e) {
+        djinni::djinni_throw_native_exception(e);
+        throw;
+    }
 }
 em::val NTVFileHelper::listFiles(const std::string& w_path) {
-    auto r = ::nativium::io::FileHelper::listFiles(::djinni::String::toCpp(w_path));
-    return ::djinni::List<::djinni::String>::fromCpp(r);
+    try {
+        auto r = ::nativium::io::FileHelper::listFiles(::djinni::String::toCpp(w_path));
+        return ::djinni::List<::djinni::String>::fromCpp(r);
+    }
+    catch(const std::exception& e) {
+        djinni::djinni_throw_native_exception(e);
+        throw;
+    }
 }
 std::string NTVFileHelper::getExtension(const std::string& w_path) {
-    auto r = ::nativium::io::FileHelper::getExtension(::djinni::String::toCpp(w_path));
-    return ::djinni::String::fromCpp(r);
+    try {
+        auto r = ::nativium::io::FileHelper::getExtension(::djinni::String::toCpp(w_path));
+        return ::djinni::String::fromCpp(r);
+    }
+    catch(const std::exception& e) {
+        djinni::djinni_throw_native_exception(e);
+        throw;
+    }
 }
 std::string NTVFileHelper::getFilename(const std::string& w_path) {
-    auto r = ::nativium::io::FileHelper::getFilename(::djinni::String::toCpp(w_path));
-    return ::djinni::String::fromCpp(r);
+    try {
+        auto r = ::nativium::io::FileHelper::getFilename(::djinni::String::toCpp(w_path));
+        return ::djinni::String::fromCpp(r);
+    }
+    catch(const std::exception& e) {
+        djinni::djinni_throw_native_exception(e);
+        throw;
+    }
 }
 std::string NTVFileHelper::getBasename(const std::string& w_path) {
-    auto r = ::nativium::io::FileHelper::getBasename(::djinni::String::toCpp(w_path));
-    return ::djinni::String::fromCpp(r);
+    try {
+        auto r = ::nativium::io::FileHelper::getBasename(::djinni::String::toCpp(w_path));
+        return ::djinni::String::fromCpp(r);
+    }
+    catch(const std::exception& e) {
+        djinni::djinni_throw_native_exception(e);
+        throw;
+    }
 }
 std::string NTVFileHelper::getFilenameFromUrl(const std::string& w_url) {
-    auto r = ::nativium::io::FileHelper::getFilenameFromUrl(::djinni::String::toCpp(w_url));
-    return ::djinni::String::fromCpp(r);
+    try {
+        auto r = ::nativium::io::FileHelper::getFilenameFromUrl(::djinni::String::toCpp(w_url));
+        return ::djinni::String::fromCpp(r);
+    }
+    catch(const std::exception& e) {
+        djinni::djinni_throw_native_exception(e);
+        throw;
+    }
 }
 std::string NTVFileHelper::getBasenameFromUrl(const std::string& w_url) {
-    auto r = ::nativium::io::FileHelper::getBasenameFromUrl(::djinni::String::toCpp(w_url));
-    return ::djinni::String::fromCpp(r);
+    try {
+        auto r = ::nativium::io::FileHelper::getBasenameFromUrl(::djinni::String::toCpp(w_url));
+        return ::djinni::String::fromCpp(r);
+    }
+    catch(const std::exception& e) {
+        djinni::djinni_throw_native_exception(e);
+        throw;
+    }
 }
 bool NTVFileHelper::removeFile(const std::string& w_path) {
-    auto r = ::nativium::io::FileHelper::removeFile(::djinni::String::toCpp(w_path));
-    return ::djinni::Bool::fromCpp(r);
+    try {
+        auto r = ::nativium::io::FileHelper::removeFile(::djinni::String::toCpp(w_path));
+        return ::djinni::Bool::fromCpp(r);
+    }
+    catch(const std::exception& e) {
+        djinni::djinni_throw_native_exception(e);
+        throw;
+    }
 }
 bool NTVFileHelper::removeDir(const std::string& w_path) {
-    auto r = ::nativium::io::FileHelper::removeDir(::djinni::String::toCpp(w_path));
-    return ::djinni::Bool::fromCpp(r);
+    try {
+        auto r = ::nativium::io::FileHelper::removeDir(::djinni::String::toCpp(w_path));
+        return ::djinni::Bool::fromCpp(r);
+    }
+    catch(const std::exception& e) {
+        djinni::djinni_throw_native_exception(e);
+        throw;
+    }
 }
 bool NTVFileHelper::isDir(const std::string& w_path) {
-    auto r = ::nativium::io::FileHelper::isDir(::djinni::String::toCpp(w_path));
-    return ::djinni::Bool::fromCpp(r);
+    try {
+        auto r = ::nativium::io::FileHelper::isDir(::djinni::String::toCpp(w_path));
+        return ::djinni::Bool::fromCpp(r);
+    }
+    catch(const std::exception& e) {
+        djinni::djinni_throw_native_exception(e);
+        throw;
+    }
 }
 bool NTVFileHelper::isFile(const std::string& w_path) {
-    auto r = ::nativium::io::FileHelper::isFile(::djinni::String::toCpp(w_path));
-    return ::djinni::Bool::fromCpp(r);
+    try {
+        auto r = ::nativium::io::FileHelper::isFile(::djinni::String::toCpp(w_path));
+        return ::djinni::Bool::fromCpp(r);
+    }
+    catch(const std::exception& e) {
+        djinni::djinni_throw_native_exception(e);
+        throw;
+    }
 }
 int64_t NTVFileHelper::getFileSize(const std::string& w_path) {
-    auto r = ::nativium::io::FileHelper::getFileSize(::djinni::String::toCpp(w_path));
-    return ::djinni::I64::fromCpp(r);
+    try {
+        auto r = ::nativium::io::FileHelper::getFileSize(::djinni::String::toCpp(w_path));
+        return ::djinni::I64::fromCpp(r);
+    }
+    catch(const std::exception& e) {
+        djinni::djinni_throw_native_exception(e);
+        throw;
+    }
 }
 bool NTVFileHelper::copyFile(const std::string& w_from,const std::string& w_to) {
-    auto r = ::nativium::io::FileHelper::copyFile(::djinni::String::toCpp(w_from),
-             ::djinni::String::toCpp(w_to));
-    return ::djinni::Bool::fromCpp(r);
+    try {
+        auto r = ::nativium::io::FileHelper::copyFile(::djinni::String::toCpp(w_from),
+                 ::djinni::String::toCpp(w_to));
+        return ::djinni::Bool::fromCpp(r);
+    }
+    catch(const std::exception& e) {
+        djinni::djinni_throw_native_exception(e);
+        throw;
+    }
 }
 bool NTVFileHelper::moveFile(const std::string& w_from,const std::string& w_to) {
-    auto r = ::nativium::io::FileHelper::moveFile(::djinni::String::toCpp(w_from),
-             ::djinni::String::toCpp(w_to));
-    return ::djinni::Bool::fromCpp(r);
+    try {
+        auto r = ::nativium::io::FileHelper::moveFile(::djinni::String::toCpp(w_from),
+                 ::djinni::String::toCpp(w_to));
+        return ::djinni::Bool::fromCpp(r);
+    }
+    catch(const std::exception& e) {
+        djinni::djinni_throw_native_exception(e);
+        throw;
+    }
 }
 std::string NTVFileHelper::join(const std::string& w_first,const std::string& w_second) {
-    auto r = ::nativium::io::FileHelper::join(::djinni::String::toCpp(w_first),
-         ::djinni::String::toCpp(w_second));
-    return ::djinni::String::fromCpp(r);
+    try {
+        auto r = ::nativium::io::FileHelper::join(::djinni::String::toCpp(w_first),
+             ::djinni::String::toCpp(w_second));
+        return ::djinni::String::fromCpp(r);
+    }
+    catch(const std::exception& e) {
+        djinni::djinni_throw_native_exception(e);
+        throw;
+    }
 }
 std::string NTVFileHelper::getFileContentAsString(const std::string& w_path) {
-    auto r = ::nativium::io::FileHelper::getFileContentAsString(::djinni::String::toCpp(w_path));
-    return ::djinni::String::fromCpp(r);
+    try {
+        auto r = ::nativium::io::FileHelper::getFileContentAsString(::djinni::String::toCpp(w_path));
+        return ::djinni::String::fromCpp(r);
+    }
+    catch(const std::exception& e) {
+        djinni::djinni_throw_native_exception(e);
+        throw;
+    }
 }
 em::val NTVFileHelper::getFileContentAsBinary(const std::string& w_path) {
-    auto r = ::nativium::io::FileHelper::getFileContentAsBinary(::djinni::String::toCpp(w_path));
-    return ::djinni::Binary::fromCpp(r);
+    try {
+        auto r = ::nativium::io::FileHelper::getFileContentAsBinary(::djinni::String::toCpp(w_path));
+        return ::djinni::Binary::fromCpp(r);
+    }
+    catch(const std::exception& e) {
+        djinni::djinni_throw_native_exception(e);
+        throw;
+    }
 }
 std::string NTVFileHelper::getHomeDir() {
-    auto r = ::nativium::io::FileHelper::getHomeDir();
-    return ::djinni::String::fromCpp(r);
+    try {
+        auto r = ::nativium::io::FileHelper::getHomeDir();
+        return ::djinni::String::fromCpp(r);
+    }
+    catch(const std::exception& e) {
+        djinni::djinni_throw_native_exception(e);
+        throw;
+    }
 }
 
 EMSCRIPTEN_BINDINGS(nativium_io_file_helper) {

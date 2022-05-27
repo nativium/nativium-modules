@@ -16,7 +16,10 @@ struct NTVHelperCustomerHelper : ::djinni::JsInterface<::nativium::helper::Custo
 
     static CppType toCpp(JsType j) { return _fromJs(j); }
     static JsType fromCppOpt(const CppOptType& c) { return {_toJs(c)}; }
-    static JsType fromCpp(const CppType& c) { return fromCppOpt(c); }
+    static JsType fromCpp(const CppType& c) {
+        djinni::checkForNull(c.get(), "NTVHelperCustomerHelper::fromCpp");
+        return fromCppOpt(c);
+    }
 
     static em::val cppProxyMethods();
 

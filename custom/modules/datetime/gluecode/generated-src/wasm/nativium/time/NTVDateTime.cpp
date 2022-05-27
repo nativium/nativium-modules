@@ -12,52 +12,124 @@ em::val NTVDateTime::cppProxyMethods() {
 }
 
 em::val NTVDateTime::getDateTimeFromString(const std::string& w_value) {
-    auto r = ::nativium::time::DateTime::getDateTimeFromString(::djinni::String::toCpp(w_value));
-    return ::djinni::Date::fromCpp(r);
+    try {
+        auto r = ::nativium::time::DateTime::getDateTimeFromString(::djinni::String::toCpp(w_value));
+        return ::djinni::Date::fromCpp(r);
+    }
+    catch(const std::exception& e) {
+        djinni::djinni_throw_native_exception(e);
+        throw;
+    }
 }
 std::string NTVDateTime::getStringFromDateTime(const em::val& w_value) {
-    auto r = ::nativium::time::DateTime::getStringFromDateTime(::djinni::Date::toCpp(w_value));
-    return ::djinni::String::fromCpp(r);
+    try {
+        auto r = ::nativium::time::DateTime::getStringFromDateTime(::djinni::Date::toCpp(w_value));
+        return ::djinni::String::fromCpp(r);
+    }
+    catch(const std::exception& e) {
+        djinni::djinni_throw_native_exception(e);
+        throw;
+    }
 }
 std::string NTVDateTime::getCurrentDateTimeAsString() {
-    auto r = ::nativium::time::DateTime::getCurrentDateTimeAsString();
-    return ::djinni::String::fromCpp(r);
+    try {
+        auto r = ::nativium::time::DateTime::getCurrentDateTimeAsString();
+        return ::djinni::String::fromCpp(r);
+    }
+    catch(const std::exception& e) {
+        djinni::djinni_throw_native_exception(e);
+        throw;
+    }
 }
 em::val NTVDateTime::getCurrentDateTime() {
-    auto r = ::nativium::time::DateTime::getCurrentDateTime();
-    return ::djinni::Date::fromCpp(r);
+    try {
+        auto r = ::nativium::time::DateTime::getCurrentDateTime();
+        return ::djinni::Date::fromCpp(r);
+    }
+    catch(const std::exception& e) {
+        djinni::djinni_throw_native_exception(e);
+        throw;
+    }
 }
 em::val NTVDateTime::getDateTimeFromSeconds(int64_t w_value) {
-    auto r = ::nativium::time::DateTime::getDateTimeFromSeconds(::djinni::I64::toCpp(w_value));
-    return ::djinni::Date::fromCpp(r);
+    try {
+        auto r = ::nativium::time::DateTime::getDateTimeFromSeconds(::djinni::I64::toCpp(w_value));
+        return ::djinni::Date::fromCpp(r);
+    }
+    catch(const std::exception& e) {
+        djinni::djinni_throw_native_exception(e);
+        throw;
+    }
 }
 em::val NTVDateTime::getDateTimeFromMilliseconds(int64_t w_value) {
-    auto r = ::nativium::time::DateTime::getDateTimeFromMilliseconds(::djinni::I64::toCpp(w_value));
-    return ::djinni::Date::fromCpp(r);
+    try {
+        auto r = ::nativium::time::DateTime::getDateTimeFromMilliseconds(::djinni::I64::toCpp(w_value));
+        return ::djinni::Date::fromCpp(r);
+    }
+    catch(const std::exception& e) {
+        djinni::djinni_throw_native_exception(e);
+        throw;
+    }
 }
 int64_t NTVDateTime::getTimestampInMillisecondsFromDateTime(const em::val& w_value) {
-    auto r = ::nativium::time::DateTime::getTimestampInMillisecondsFromDateTime(::djinni::Date::toCpp(w_value));
-    return ::djinni::I64::fromCpp(r);
+    try {
+        auto r = ::nativium::time::DateTime::getTimestampInMillisecondsFromDateTime(::djinni::Date::toCpp(w_value));
+        return ::djinni::I64::fromCpp(r);
+    }
+    catch(const std::exception& e) {
+        djinni::djinni_throw_native_exception(e);
+        throw;
+    }
 }
 int64_t NTVDateTime::getTimestampInSecondsFromDateTime(const em::val& w_value) {
-    auto r = ::nativium::time::DateTime::getTimestampInSecondsFromDateTime(::djinni::Date::toCpp(w_value));
-    return ::djinni::I64::fromCpp(r);
+    try {
+        auto r = ::nativium::time::DateTime::getTimestampInSecondsFromDateTime(::djinni::Date::toCpp(w_value));
+        return ::djinni::I64::fromCpp(r);
+    }
+    catch(const std::exception& e) {
+        djinni::djinni_throw_native_exception(e);
+        throw;
+    }
 }
 std::string NTVDateTime::getCurrentTimestampInSecondsAsString() {
-    auto r = ::nativium::time::DateTime::getCurrentTimestampInSecondsAsString();
-    return ::djinni::String::fromCpp(r);
+    try {
+        auto r = ::nativium::time::DateTime::getCurrentTimestampInSecondsAsString();
+        return ::djinni::String::fromCpp(r);
+    }
+    catch(const std::exception& e) {
+        djinni::djinni_throw_native_exception(e);
+        throw;
+    }
 }
 int64_t NTVDateTime::getCurrentTimestampInSeconds() {
-    auto r = ::nativium::time::DateTime::getCurrentTimestampInSeconds();
-    return ::djinni::I64::fromCpp(r);
+    try {
+        auto r = ::nativium::time::DateTime::getCurrentTimestampInSeconds();
+        return ::djinni::I64::fromCpp(r);
+    }
+    catch(const std::exception& e) {
+        djinni::djinni_throw_native_exception(e);
+        throw;
+    }
 }
 std::string NTVDateTime::getCurrentTimestampInMillisecondsAsString() {
-    auto r = ::nativium::time::DateTime::getCurrentTimestampInMillisecondsAsString();
-    return ::djinni::String::fromCpp(r);
+    try {
+        auto r = ::nativium::time::DateTime::getCurrentTimestampInMillisecondsAsString();
+        return ::djinni::String::fromCpp(r);
+    }
+    catch(const std::exception& e) {
+        djinni::djinni_throw_native_exception(e);
+        throw;
+    }
 }
 int64_t NTVDateTime::getCurrentTimestampInMilliseconds() {
-    auto r = ::nativium::time::DateTime::getCurrentTimestampInMilliseconds();
-    return ::djinni::I64::fromCpp(r);
+    try {
+        auto r = ::nativium::time::DateTime::getCurrentTimestampInMilliseconds();
+        return ::djinni::I64::fromCpp(r);
+    }
+    catch(const std::exception& e) {
+        djinni::djinni_throw_native_exception(e);
+        throw;
+    }
 }
 
 EMSCRIPTEN_BINDINGS(nativium_time_date_time) {

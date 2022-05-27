@@ -16,7 +16,10 @@ struct NTVHttpClientPlatformService : ::djinni::JsInterface<::nativium::net::htt
 
     static CppType toCpp(JsType j) { return _fromJs(j); }
     static JsType fromCppOpt(const CppOptType& c) { return {_toJs(c)}; }
-    static JsType fromCpp(const CppType& c) { return fromCppOpt(c); }
+    static JsType fromCpp(const CppType& c) {
+        djinni::checkForNull(c.get(), "NTVHttpClientPlatformService::fromCpp");
+        return fromCppOpt(c);
+    }
 
     static em::val cppProxyMethods();
 

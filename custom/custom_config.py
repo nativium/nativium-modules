@@ -17,10 +17,6 @@ def run(params):
             "path": os.path.join("modules", "app-main"),
         },
         {
-            "type": "remove-dir",
-            "path": os.path.join("modules", "app-wasm"),
-        },
-        {
             "type": "symlink",
             "source": os.path.join("modules", "app-core"),
             "target": os.path.join("modules", "app-core"),

@@ -13,21 +13,51 @@ em::val NTVHelperSharedDataHelper::cppProxyMethods() {
 }
 
 void NTVHelperSharedDataHelper::setCustomer(const em::val& w_value) {
-    ::nativium::helper::SharedDataHelper::setCustomer(::djinni_generated::NTVDomainCustomer::toCpp(w_value));
+    try {
+        ::nativium::helper::SharedDataHelper::setCustomer(::djinni_generated::NTVDomainCustomer::toCpp(w_value));
+    }
+    catch(const std::exception& e) {
+        djinni::djinni_throw_native_exception(e);
+        throw;
+    }
 }
 em::val NTVHelperSharedDataHelper::getCustomer() {
-    auto r = ::nativium::helper::SharedDataHelper::getCustomer();
-    return ::djinni_generated::NTVDomainCustomer::fromCpp(r);
+    try {
+        auto r = ::nativium::helper::SharedDataHelper::getCustomer();
+        return ::djinni_generated::NTVDomainCustomer::fromCpp(r);
+    }
+    catch(const std::exception& e) {
+        djinni::djinni_throw_native_exception(e);
+        throw;
+    }
 }
 void NTVHelperSharedDataHelper::storeCustomer() {
-    ::nativium::helper::SharedDataHelper::storeCustomer();
+    try {
+        ::nativium::helper::SharedDataHelper::storeCustomer();
+    }
+    catch(const std::exception& e) {
+        djinni::djinni_throw_native_exception(e);
+        throw;
+    }
 }
 void NTVHelperSharedDataHelper::setDemoFlag(bool w_value) {
-    ::nativium::helper::SharedDataHelper::setDemoFlag(::djinni::Bool::toCpp(w_value));
+    try {
+        ::nativium::helper::SharedDataHelper::setDemoFlag(::djinni::Bool::toCpp(w_value));
+    }
+    catch(const std::exception& e) {
+        djinni::djinni_throw_native_exception(e);
+        throw;
+    }
 }
 bool NTVHelperSharedDataHelper::getDemoFlag() {
-    auto r = ::nativium::helper::SharedDataHelper::getDemoFlag();
-    return ::djinni::Bool::fromCpp(r);
+    try {
+        auto r = ::nativium::helper::SharedDataHelper::getDemoFlag();
+        return ::djinni::Bool::fromCpp(r);
+    }
+    catch(const std::exception& e) {
+        djinni::djinni_throw_native_exception(e);
+        throw;
+    }
 }
 
 EMSCRIPTEN_BINDINGS(nativium_helper_shared_data_helper) {
