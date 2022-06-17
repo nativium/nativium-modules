@@ -27,7 +27,7 @@ def configure(params={}):
     conanfile.options["poco"].enable_util = True
     conanfile.options["poco"].enable_xml = True
     conanfile.options["poco"].enable_zip = False
-    conanfile.options["poco"].enable_active_record = False
+    conanfile.options["poco"].enable_activerecord = False
 
     if conanfile.settings.os == "Windows":
         conanfile.options["poco"].enable_netssl = False
@@ -45,5 +45,5 @@ def configure(params={}):
 def requirements(params={}):
     conanfile: ConanFile = params["conanfile"]
 
-    conanfile.requires("openssl/1.1.1k")
-    conanfile.requires("poco/1.11.1")
+    conanfile.requires("openssl/1.1.1o")
+    conanfile.requires("poco/1.11.2")
