@@ -72,7 +72,8 @@ bool SimpleFileHelperPlatformService::createDir(const std::string &path)
     try
     {
         Poco::File f(path);
-        return f.createDirectory();
+        f.createDirectories();
+        return true;
     }
     catch (const std::exception &)
     {

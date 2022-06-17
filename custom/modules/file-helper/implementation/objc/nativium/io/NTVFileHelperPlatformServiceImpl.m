@@ -99,7 +99,7 @@
         NSError *error;
 
         [[NSFileManager defaultManager] createDirectoryAtPath:path
-                                  withIntermediateDirectories:NO
+                                  withIntermediateDirectories:YES
                                                    attributes:nil
                                                         error:&error];
 
