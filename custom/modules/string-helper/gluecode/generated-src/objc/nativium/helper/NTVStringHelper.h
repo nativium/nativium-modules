@@ -20,4 +20,8 @@
                                    sep:(nonnull NSString *)sep
                              trimEmpty:(BOOL)trimEmpty;
 
++ (nonnull NSString *)encodeUri:(nonnull NSString *)value;
+
++ (nonnull NSString *)decodeUri:(nonnull NSString *)value;
+
 @end

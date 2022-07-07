@@ -23,6 +23,10 @@ public:
     static std::string toUpper(const std::string & value);
 
     static std::vector<std::string> split(const std::string & text, const std::string & sep, bool trimEmpty);
+
+    static std::string encodeUri(const std::string & value);
+
+    static std::string decodeUri(const std::string & value);
 };
 
 } }  // namespace nativium::helper

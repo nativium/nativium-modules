@@ -63,5 +63,55 @@ std::vector<std::string> StringHelper::split(const std::string &text, const std:
     return tokens;
 }
 
+std::string StringHelper::encodeUri(const std::string &value)
+{
+    std::ostringstream oss;
+    std::regex r("[!'\\(\\)*-.0-9A-Za-z_~]");
+
+    for (const char &c : value)
+    {
+        if (std::regex_match((std::string){c}, r))
+        {
+            oss << c;
+        }
+        else
+        {
+            oss << "%" << std::uppercase << std::hex << (0xff & c);
+        }
+    }
+
+    return oss.str();
+}
+
+std::string StringHelper::decodeUri(const std::string &value)
+{
+    std::string decoded = value;
+    std::smatch sm;
+    std::string haystack;
+
+    int dynamicLength = decoded.size() - 2;
+
+    if (decoded.size() < 3)
+    {
+        return decoded;
+    }
+
+    for (int i = 0; i < dynamicLength; i++)
+    {
+        haystack = decoded.substr(i, 3);
+
+        if (std::regex_match(haystack, sm, std::regex("%[0-9A-F]{2}")))
+        {
+            haystack = haystack.replace(0, 1, "0x");
+            std::string rc = {(char)std::stoi(haystack, nullptr, 16)};
+            decoded = decoded.replace(decoded.begin() + i, decoded.begin() + i + 3, rc);
+        }
+
+        dynamicLength = decoded.size() - 2;
+    }
+
+    return decoded;
+}
+
 } // namespace helper
 } // namespace nativium

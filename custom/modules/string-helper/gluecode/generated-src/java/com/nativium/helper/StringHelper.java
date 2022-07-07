@@ -20,6 +20,10 @@ public abstract class StringHelper {
 
     public static native ArrayList<String> split(String text, String sep, boolean trimEmpty);
 
+    public static native String encodeUri(String value);
+
+    public static native String decodeUri(String value);
+
     public static final class CppProxy extends StringHelper
     {
         private final long nativeRef;

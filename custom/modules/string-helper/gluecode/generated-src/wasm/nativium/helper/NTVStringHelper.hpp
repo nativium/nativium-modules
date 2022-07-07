@@ -29,6 +29,8 @@ struct NTVStringHelper : ::djinni::JsInterface<::nativium::helper::StringHelper,
     static std::string toLower(const std::string& w_value);
     static std::string toUpper(const std::string& w_value);
     static em::val split(const std::string& w_text,const std::string& w_sep,bool w_trimEmpty);
+    static std::string encodeUri(const std::string& w_value);
+    static std::string decodeUri(const std::string& w_value);
 
 };
 

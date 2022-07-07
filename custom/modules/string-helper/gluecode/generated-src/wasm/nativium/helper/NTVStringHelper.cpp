@@ -73,6 +73,26 @@ em::val NTVStringHelper::split(const std::string& w_text,const std::string& w_se
         throw;
     }
 }
+std::string NTVStringHelper::encodeUri(const std::string& w_value) {
+    try {
+        auto r = ::nativium::helper::StringHelper::encodeUri(::djinni::String::toCpp(w_value));
+        return ::djinni::String::fromCpp(r);
+    }
+    catch(const std::exception& e) {
+        djinni::djinni_throw_native_exception(e);
+        throw;
+    }
+}
+std::string NTVStringHelper::decodeUri(const std::string& w_value) {
+    try {
+        auto r = ::nativium::helper::StringHelper::decodeUri(::djinni::String::toCpp(w_value));
+        return ::djinni::String::fromCpp(r);
+    }
+    catch(const std::exception& e) {
+        djinni::djinni_throw_native_exception(e);
+        throw;
+    }
+}
 
 EMSCRIPTEN_BINDINGS(nativium_helper_string_helper) {
     em::class_<::nativium::helper::StringHelper>("StringHelper")
@@ -84,6 +104,8 @@ EMSCRIPTEN_BINDINGS(nativium_helper_string_helper) {
         .class_function("toLower", NTVStringHelper::toLower)
         .class_function("toUpper", NTVStringHelper::toUpper)
         .class_function("split", NTVStringHelper::split)
+        .class_function("encodeUri", NTVStringHelper::encodeUri)
+        .class_function("decodeUri", NTVStringHelper::decodeUri)
         ;
 }
 

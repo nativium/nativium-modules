@@ -76,6 +76,20 @@ static_assert(__has_feature(objc_arc), "Djinni requires ARC to be enabled for th
     } DJINNI_TRANSLATE_EXCEPTIONS()
 }
 
++ (nonnull NSString *)encodeUri:(nonnull NSString *)value {
+    try {
+        auto objcpp_result_ = ::nativium::helper::StringHelper::encodeUri(::djinni::String::toCpp(value));
+        return ::djinni::String::fromCpp(objcpp_result_);
+    } DJINNI_TRANSLATE_EXCEPTIONS()
+}
+
++ (nonnull NSString *)decodeUri:(nonnull NSString *)value {
+    try {
+        auto objcpp_result_ = ::nativium::helper::StringHelper::decodeUri(::djinni::String::toCpp(value));
+        return ::djinni::String::fromCpp(objcpp_result_);
+    } DJINNI_TRANSLATE_EXCEPTIONS()
+}
+
 namespace djinni_generated {
 
 auto StringHelper::toCpp(ObjcType objc) -> CppType
