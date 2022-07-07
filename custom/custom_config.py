@@ -101,4 +101,14 @@ def run(params):
                 },
             ],
         },
+        {
+            "type": "replace-text",
+            "path": "config/gluecode.py",
+            "list": [
+                {
+                    "old": '"order": []',
+                    "new": '"order": ["app-enumerator", "app-domain", "app-helper", "app-repository", "app-system-service", "app-core"]',
+                },
+            ],
+        },
     ]
