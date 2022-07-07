@@ -4,13 +4,13 @@
 #pragma once
 
 #include "djinni/wasm/djinni_wasm.hpp"
-#include "nativium/helper/StringHelper.hpp"
+#include "nativium/text/StringHelper.hpp"
 
 namespace djinni_generated {
 
-struct NTVStringHelper : ::djinni::JsInterface<::nativium::helper::StringHelper, NTVStringHelper> {
-    using CppType = std::shared_ptr<::nativium::helper::StringHelper>;
-    using CppOptType = std::shared_ptr<::nativium::helper::StringHelper>;
+struct NTVStringHelper : ::djinni::JsInterface<::nativium::text::StringHelper, NTVStringHelper> {
+    using CppType = std::shared_ptr<::nativium::text::StringHelper>;
+    using CppOptType = std::shared_ptr<::nativium::text::StringHelper>;
     using JsType = em::val;
     using Boxed = NTVStringHelper;
 

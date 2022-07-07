@@ -4,14 +4,14 @@
 #pragma once
 
 #include "djinni/jni/djinni_support.hpp"
-#include "nativium/helper/StringHelper.hpp"
+#include "nativium/text/StringHelper.hpp"
 
 namespace djinni_generated {
 
-class NTVStringHelper final : ::djinni::JniInterface<::nativium::helper::StringHelper, NTVStringHelper> {
+class NTVStringHelper final : ::djinni::JniInterface<::nativium::text::StringHelper, NTVStringHelper> {
 public:
-    using CppType = std::shared_ptr<::nativium::helper::StringHelper>;
-    using CppOptType = std::shared_ptr<::nativium::helper::StringHelper>;
+    using CppType = std::shared_ptr<::nativium::text::StringHelper>;
+    using CppOptType = std::shared_ptr<::nativium::text::StringHelper>;
     using JniType = jobject;
 
     using Boxed = NTVStringHelper;
@@ -25,7 +25,7 @@ public:
 private:
     NTVStringHelper();
     friend ::djinni::JniClass<NTVStringHelper>;
-    friend ::djinni::JniInterface<::nativium::helper::StringHelper, NTVStringHelper>;
+    friend ::djinni::JniInterface<::nativium::text::StringHelper, NTVStringHelper>;
 
 };
 

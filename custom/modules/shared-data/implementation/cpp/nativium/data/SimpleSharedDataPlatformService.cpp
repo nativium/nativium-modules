@@ -1,12 +1,12 @@
 #include "SimpleSharedDataPlatformService.hpp"
-#include "nativium/helper/StringHelper.hpp"
 #include "nativium/io/FileHelper.hpp"
+#include "nativium/text/StringHelper.hpp"
 #include "rapidjson/prettywriter.h"
 #include "rapidjson/stringbuffer.h"
 #include <iostream>
 
 using namespace nativium::io;
-using namespace nativium::helper;
+using namespace nativium::text;
 
 namespace nativium
 {

@@ -10,10 +10,10 @@ def run(params):
     djinni_file = "proj.djinni"
 
     # cpp configuration
-    cpp_namespace = "{0}::helper".format(
+    cpp_namespace = "{0}::text".format(
         gluecode_config["cpp_namespace_prefix"],
     )
-    cpp_include_prefix = "{0}/helper/".format(
+    cpp_include_prefix = "{0}/text/".format(
         gluecode_config["cpp_include_prefix"],
     )
     cpp_out = "generated-src/cpp/{0}".format(cpp_include_prefix)
@@ -27,7 +27,7 @@ def run(params):
     objc_include_prefix = "{0}".format(cpp_include_prefix)
 
     # java configuration
-    java_package = "{0}.helper".format(
+    java_package = "{0}.text".format(
         gluecode_config["java_package_prefix"],
     )
     java_out = "generated-src/java/{0}".format(java_package.replace(".", "/"))

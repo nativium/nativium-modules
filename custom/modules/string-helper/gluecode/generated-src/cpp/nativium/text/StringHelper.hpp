@@ -6,7 +6,7 @@
 #include <string>
 #include <vector>
 
-namespace nativium { namespace helper {
+namespace nativium { namespace text {
 
 class StringHelper {
 public:
@@ -29,4 +29,4 @@ public:
     static std::string decodeUri(const std::string & value);
 };
 
-} }  // namespace nativium::helper
+} }  // namespace nativium::text

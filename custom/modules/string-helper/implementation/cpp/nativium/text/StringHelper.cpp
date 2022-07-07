@@ -1,10 +1,10 @@
-#include "nativium/helper/StringHelper.hpp"
+#include "nativium/text/StringHelper.hpp"
 #include <regex>
 #include <sstream>
 
 namespace nativium
 {
-namespace helper
+namespace text
 {
 
 std::string StringHelper::trim(const std::string &value)
@@ -114,5 +114,5 @@ std::string StringHelper::decodeUri(const std::string &value)
     return decoded;
 }
 
-} // namespace helper
+} // namespace text
 } // namespace nativium

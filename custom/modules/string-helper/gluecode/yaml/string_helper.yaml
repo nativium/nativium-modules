@@ -5,34 +5,34 @@ typedef: 'interface +c'
 params: []
 prefix: ""
 cpp:
-  typename: '::nativium::helper::StringHelper'
-  header: '"nativium/helper/StringHelper.hpp"'
+  typename: '::nativium::text::StringHelper'
+  header: '"nativium/text/StringHelper.hpp"'
   byValue: false
 objc:
   typename: 'NTVStringHelper'
   pointer: true
   hash: '%s.hash'
   boxed: 'NTVStringHelper'
-  header: '"nativium/helper/NTVStringHelper.h"'
+  header: '"nativium/text/NTVStringHelper.h"'
 objcpp:
   translator: '::djinni_generated::StringHelper'
-  header: '"nativium/helper/NTVStringHelper+Private.h"'
+  header: '"nativium/text/NTVStringHelper+Private.h"'
 java:
   reference: true
-  typename: 'com.nativium.helper.StringHelper'
+  typename: 'com.nativium.text.StringHelper'
   writeToParcel: '%s.writeToParcel(out, flags)'
   generic: true
   readFromParcel: 'new %s(in)'
   hash: '%s.hashCode()'
-  boxed: 'com.nativium.helper.StringHelper'
+  boxed: 'com.nativium.text.StringHelper'
 jni:
   translator: '::djinni_generated::NTVStringHelper'
-  header: '"com/nativium/helper/NTVStringHelper.hpp"'
+  header: '"com/nativium/text/NTVStringHelper.hpp"'
   typename: jobject
-  typeSignature: 'Lcom/nativium/helper/StringHelper;'
+  typeSignature: 'Lcom/nativium/text/StringHelper;'
 wasm:
   translator: '::djinni_generated::NTVStringHelper'
-  header: '"nativium/helper/NTVStringHelper.hpp"'
+  header: '"nativium/text/NTVStringHelper.hpp"'
   typename: em::val
 ts:
   typename: StringHelper

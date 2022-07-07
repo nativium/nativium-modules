@@ -19,8 +19,8 @@
 
 #include "nativium/helper/CustomerHelper.hpp"
 #include "nativium/helper/EnvironmentHelper.hpp"
-#include "nativium/helper/StringHelper.hpp"
 #include "nativium/helper/TodoHelper.hpp"
+#include "nativium/text/StringHelper.hpp"
 
 #include "nativium/data/SharedData.hpp"
 #include "nativium/data/SimpleSharedDataPlatformService.hpp"
@@ -50,6 +50,7 @@ using namespace nativium::core;
 using namespace nativium::repository;
 using namespace nativium::systemservice;
 using namespace nativium::helper;
+using namespace nativium::text;
 
 int main(int argc, char **argv)
 {
