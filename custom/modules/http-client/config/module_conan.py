@@ -46,4 +46,4 @@ def requirements(params={}):
     conanfile: ConanFile = params["conanfile"]
 
     conanfile.requires("openssl/1.1.1o")
-    conanfile.requires("poco/1.11.2")
+    conanfile.requires("poco/1.11.3")

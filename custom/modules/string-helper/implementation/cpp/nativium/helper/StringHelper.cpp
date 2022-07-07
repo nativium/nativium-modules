@@ -71,7 +71,7 @@ std::string StringHelper::encodeUri(const std::string &value)
 
     for (const char &c : value)
     {
-        if (std::regex_match((std::string){c}, r))
+        if (std::regex_match(std::string{c}, r))
         {
             oss << c;
         }
