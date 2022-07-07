@@ -25,6 +25,7 @@ struct NTVDateTime : ::djinni::JsInterface<::nativium::time::DateTime, NTVDateTi
 
     static em::val getDateTimeFromString(const std::string& w_value);
     static std::string getStringFromDateTime(const em::val& w_value);
+    static em::val getDateTimeFromStringWithFormat(const std::string& w_value,const std::string& w_format);
     static std::string getCurrentDateTimeAsString();
     static em::val getCurrentDateTime();
     static em::val getDateTimeFromSeconds(int64_t w_value);
@@ -35,6 +36,9 @@ struct NTVDateTime : ::djinni::JsInterface<::nativium::time::DateTime, NTVDateTi
     static int64_t getCurrentTimestampInSeconds();
     static std::string getCurrentTimestampInMillisecondsAsString();
     static int64_t getCurrentTimestampInMilliseconds();
+    static std::string getFormattedStringFromDateTime(const em::val& w_value,const std::string& w_format);
+    static int64_t getMillisecondsFromTimeString(const std::string& w_value);
+    static em::val getDateTimeFromTimeInPosixTimezone(const std::string& w_time,const std::string& w_timezone);
 
 };
 

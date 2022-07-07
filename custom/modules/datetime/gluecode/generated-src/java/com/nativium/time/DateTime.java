@@ -12,6 +12,8 @@ public abstract class DateTime {
 
     public static native String getStringFromDateTime(Date value);
 
+    public static native Date getDateTimeFromStringWithFormat(String value, String format);
+
     public static native String getCurrentDateTimeAsString();
 
     public static native Date getCurrentDateTime();
@@ -31,6 +33,12 @@ public abstract class DateTime {
     public static native String getCurrentTimestampInMillisecondsAsString();
 
     public static native long getCurrentTimestampInMilliseconds();
+
+    public static native String getFormattedStringFromDateTime(Date value, String format);
+
+    public static native long getMillisecondsFromTimeString(String value);
+
+    public static native Date getDateTimeFromTimeInPosixTimezone(String time, String timezone);
 
     public static final class CppProxy extends DateTime
     {

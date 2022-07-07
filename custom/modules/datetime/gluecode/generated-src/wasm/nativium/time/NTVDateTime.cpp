@@ -31,6 +31,17 @@ std::string NTVDateTime::getStringFromDateTime(const em::val& w_value) {
         throw;
     }
 }
+em::val NTVDateTime::getDateTimeFromStringWithFormat(const std::string& w_value,const std::string& w_format) {
+    try {
+        auto r = ::nativium::time::DateTime::getDateTimeFromStringWithFormat(::djinni::String::toCpp(w_value),
+                                        ::djinni::String::toCpp(w_format));
+        return ::djinni::Date::fromCpp(r);
+    }
+    catch(const std::exception& e) {
+        djinni::djinni_throw_native_exception(e);
+        throw;
+    }
+}
 std::string NTVDateTime::getCurrentDateTimeAsString() {
     try {
         auto r = ::nativium::time::DateTime::getCurrentDateTimeAsString();
@@ -131,6 +142,38 @@ int64_t NTVDateTime::getCurrentTimestampInMilliseconds() {
         throw;
     }
 }
+std::string NTVDateTime::getFormattedStringFromDateTime(const em::val& w_value,const std::string& w_format) {
+    try {
+        auto r = ::nativium::time::DateTime::getFormattedStringFromDateTime(::djinni::Date::toCpp(w_value),
+                                       ::djinni::String::toCpp(w_format));
+        return ::djinni::String::fromCpp(r);
+    }
+    catch(const std::exception& e) {
+        djinni::djinni_throw_native_exception(e);
+        throw;
+    }
+}
+int64_t NTVDateTime::getMillisecondsFromTimeString(const std::string& w_value) {
+    try {
+        auto r = ::nativium::time::DateTime::getMillisecondsFromTimeString(::djinni::String::toCpp(w_value));
+        return ::djinni::I64::fromCpp(r);
+    }
+    catch(const std::exception& e) {
+        djinni::djinni_throw_native_exception(e);
+        throw;
+    }
+}
+em::val NTVDateTime::getDateTimeFromTimeInPosixTimezone(const std::string& w_time,const std::string& w_timezone) {
+    try {
+        auto r = ::nativium::time::DateTime::getDateTimeFromTimeInPosixTimezone(::djinni::String::toCpp(w_time),
+                                           ::djinni::String::toCpp(w_timezone));
+        return ::djinni::Date::fromCpp(r);
+    }
+    catch(const std::exception& e) {
+        djinni::djinni_throw_native_exception(e);
+        throw;
+    }
+}
 
 EMSCRIPTEN_BINDINGS(nativium_time_date_time) {
     em::class_<::nativium::time::DateTime>("DateTime")
@@ -138,6 +181,7 @@ EMSCRIPTEN_BINDINGS(nativium_time_date_time) {
         .function("nativeDestroy", &NTVDateTime::nativeDestroy)
         .class_function("getDateTimeFromString", NTVDateTime::getDateTimeFromString)
         .class_function("getStringFromDateTime", NTVDateTime::getStringFromDateTime)
+        .class_function("getDateTimeFromStringWithFormat", NTVDateTime::getDateTimeFromStringWithFormat)
         .class_function("getCurrentDateTimeAsString", NTVDateTime::getCurrentDateTimeAsString)
         .class_function("getCurrentDateTime", NTVDateTime::getCurrentDateTime)
         .class_function("getDateTimeFromSeconds", NTVDateTime::getDateTimeFromSeconds)
@@ -148,6 +192,9 @@ EMSCRIPTEN_BINDINGS(nativium_time_date_time) {
         .class_function("getCurrentTimestampInSeconds", NTVDateTime::getCurrentTimestampInSeconds)
         .class_function("getCurrentTimestampInMillisecondsAsString", NTVDateTime::getCurrentTimestampInMillisecondsAsString)
         .class_function("getCurrentTimestampInMilliseconds", NTVDateTime::getCurrentTimestampInMilliseconds)
+        .class_function("getFormattedStringFromDateTime", NTVDateTime::getFormattedStringFromDateTime)
+        .class_function("getMillisecondsFromTimeString", NTVDateTime::getMillisecondsFromTimeString)
+        .class_function("getDateTimeFromTimeInPosixTimezone", NTVDateTime::getDateTimeFromTimeInPosixTimezone)
         ;
 }
 

@@ -17,6 +17,8 @@ public:
 
     static std::string getStringFromDateTime(const std::chrono::system_clock::time_point & value);
 
+    static std::chrono::system_clock::time_point getDateTimeFromStringWithFormat(const std::string & value, const std::string & format);
+
     static std::string getCurrentDateTimeAsString();
 
     static std::chrono::system_clock::time_point getCurrentDateTime();
@@ -36,6 +38,12 @@ public:
     static std::string getCurrentTimestampInMillisecondsAsString();
 
     static int64_t getCurrentTimestampInMilliseconds();
+
+    static std::string getFormattedStringFromDateTime(const std::chrono::system_clock::time_point & value, const std::string & format);
+
+    static int64_t getMillisecondsFromTimeString(const std::string & value);
+
+    static std::chrono::system_clock::time_point getDateTimeFromTimeInPosixTimezone(const std::string & time, const std::string & timezone);
 };
 
 } }  // namespace nativium::time

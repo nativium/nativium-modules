@@ -10,6 +10,9 @@
 
 + (nonnull NSString *)getStringFromDateTime:(nonnull NSDate *)value;
 
++ (nonnull NSDate *)getDateTimeFromStringWithFormat:(nonnull NSString *)value
+                                             format:(nonnull NSString *)format;
+
 + (nonnull NSString *)getCurrentDateTimeAsString;
 
 + (nonnull NSDate *)getCurrentDateTime;
@@ -29,5 +32,13 @@
 + (nonnull NSString *)getCurrentTimestampInMillisecondsAsString;
 
 + (int64_t)getCurrentTimestampInMilliseconds;
+
++ (nonnull NSString *)getFormattedStringFromDateTime:(nonnull NSDate *)value
+                                              format:(nonnull NSString *)format;
+
++ (int64_t)getMillisecondsFromTimeString:(nonnull NSString *)value;
+
++ (nonnull NSDate *)getDateTimeFromTimeInPosixTimezone:(nonnull NSString *)time
+                                              timezone:(nonnull NSString *)timezone;
 
 @end

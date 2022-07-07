@@ -34,6 +34,15 @@ CJNIEXPORT jstring JNICALL Java_com_nativium_time_DateTime_getStringFromDateTime
     } JNI_TRANSLATE_EXCEPTIONS_RETURN(jniEnv, 0 /* value doesn't matter */)
 }
 
+CJNIEXPORT jobject JNICALL Java_com_nativium_time_DateTime_getDateTimeFromStringWithFormat(JNIEnv* jniEnv, jobject /*this*/, jstring j_value, jstring j_format)
+{
+    try {
+        auto r = ::nativium::time::DateTime::getDateTimeFromStringWithFormat(::djinni::String::toCpp(jniEnv, j_value),
+                                                                             ::djinni::String::toCpp(jniEnv, j_format));
+        return ::djinni::release(::djinni::Date::fromCpp(jniEnv, r));
+    } JNI_TRANSLATE_EXCEPTIONS_RETURN(jniEnv, 0 /* value doesn't matter */)
+}
+
 CJNIEXPORT jstring JNICALL Java_com_nativium_time_DateTime_getCurrentDateTimeAsString(JNIEnv* jniEnv, jobject /*this*/)
 {
     try {
@@ -111,6 +120,32 @@ CJNIEXPORT jlong JNICALL Java_com_nativium_time_DateTime_getCurrentTimestampInMi
     try {
         auto r = ::nativium::time::DateTime::getCurrentTimestampInMilliseconds();
         return ::djinni::release(::djinni::I64::fromCpp(jniEnv, r));
+    } JNI_TRANSLATE_EXCEPTIONS_RETURN(jniEnv, 0 /* value doesn't matter */)
+}
+
+CJNIEXPORT jstring JNICALL Java_com_nativium_time_DateTime_getFormattedStringFromDateTime(JNIEnv* jniEnv, jobject /*this*/, jobject j_value, jstring j_format)
+{
+    try {
+        auto r = ::nativium::time::DateTime::getFormattedStringFromDateTime(::djinni::Date::toCpp(jniEnv, j_value),
+                                                                            ::djinni::String::toCpp(jniEnv, j_format));
+        return ::djinni::release(::djinni::String::fromCpp(jniEnv, r));
+    } JNI_TRANSLATE_EXCEPTIONS_RETURN(jniEnv, 0 /* value doesn't matter */)
+}
+
+CJNIEXPORT jlong JNICALL Java_com_nativium_time_DateTime_getMillisecondsFromTimeString(JNIEnv* jniEnv, jobject /*this*/, jstring j_value)
+{
+    try {
+        auto r = ::nativium::time::DateTime::getMillisecondsFromTimeString(::djinni::String::toCpp(jniEnv, j_value));
+        return ::djinni::release(::djinni::I64::fromCpp(jniEnv, r));
+    } JNI_TRANSLATE_EXCEPTIONS_RETURN(jniEnv, 0 /* value doesn't matter */)
+}
+
+CJNIEXPORT jobject JNICALL Java_com_nativium_time_DateTime_getDateTimeFromTimeInPosixTimezone(JNIEnv* jniEnv, jobject /*this*/, jstring j_time, jstring j_timezone)
+{
+    try {
+        auto r = ::nativium::time::DateTime::getDateTimeFromTimeInPosixTimezone(::djinni::String::toCpp(jniEnv, j_time),
+                                                                                ::djinni::String::toCpp(jniEnv, j_timezone));
+        return ::djinni::release(::djinni::Date::fromCpp(jniEnv, r));
     } JNI_TRANSLATE_EXCEPTIONS_RETURN(jniEnv, 0 /* value doesn't matter */)
 }
 

@@ -44,6 +44,15 @@ static_assert(__has_feature(objc_arc), "Djinni requires ARC to be enabled for th
     } DJINNI_TRANSLATE_EXCEPTIONS()
 }
 
++ (nonnull NSDate *)getDateTimeFromStringWithFormat:(nonnull NSString *)value
+                                             format:(nonnull NSString *)format {
+    try {
+        auto objcpp_result_ = ::nativium::time::DateTime::getDateTimeFromStringWithFormat(::djinni::String::toCpp(value),
+                                                                                          ::djinni::String::toCpp(format));
+        return ::djinni::Date::fromCpp(objcpp_result_);
+    } DJINNI_TRANSLATE_EXCEPTIONS()
+}
+
 + (nonnull NSString *)getCurrentDateTimeAsString {
     try {
         auto objcpp_result_ = ::nativium::time::DateTime::getCurrentDateTimeAsString();
@@ -111,6 +120,31 @@ static_assert(__has_feature(objc_arc), "Djinni requires ARC to be enabled for th
     try {
         auto objcpp_result_ = ::nativium::time::DateTime::getCurrentTimestampInMilliseconds();
         return ::djinni::I64::fromCpp(objcpp_result_);
+    } DJINNI_TRANSLATE_EXCEPTIONS()
+}
+
++ (nonnull NSString *)getFormattedStringFromDateTime:(nonnull NSDate *)value
+                                              format:(nonnull NSString *)format {
+    try {
+        auto objcpp_result_ = ::nativium::time::DateTime::getFormattedStringFromDateTime(::djinni::Date::toCpp(value),
+                                                                                         ::djinni::String::toCpp(format));
+        return ::djinni::String::fromCpp(objcpp_result_);
+    } DJINNI_TRANSLATE_EXCEPTIONS()
+}
+
++ (int64_t)getMillisecondsFromTimeString:(nonnull NSString *)value {
+    try {
+        auto objcpp_result_ = ::nativium::time::DateTime::getMillisecondsFromTimeString(::djinni::String::toCpp(value));
+        return ::djinni::I64::fromCpp(objcpp_result_);
+    } DJINNI_TRANSLATE_EXCEPTIONS()
+}
+
++ (nonnull NSDate *)getDateTimeFromTimeInPosixTimezone:(nonnull NSString *)time
+                                              timezone:(nonnull NSString *)timezone {
+    try {
+        auto objcpp_result_ = ::nativium::time::DateTime::getDateTimeFromTimeInPosixTimezone(::djinni::String::toCpp(time),
+                                                                                             ::djinni::String::toCpp(timezone));
+        return ::djinni::Date::fromCpp(objcpp_result_);
     } DJINNI_TRANSLATE_EXCEPTIONS()
 }
 
