@@ -1,5 +1,6 @@
 #include "nativium/helper/StringHelper.hpp"
 #include <regex>
+#include <sstream>
 
 namespace nativium
 {
