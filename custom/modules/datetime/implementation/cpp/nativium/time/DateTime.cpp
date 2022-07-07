@@ -1,7 +1,9 @@
 #include "nativium/time/DateTime.hpp"
 #include "date/date.h"
+#include "date/ptz.h"
 
 #include <chrono>
+#include <cmath>
 #include <sstream>
 
 namespace nativium
