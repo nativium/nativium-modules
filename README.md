@@ -29,6 +29,12 @@ The modules are ready to use with [Nativium](https://github.com/nativium/nativiu
 
 https://github.com/nativium/nativium
 
+# Web Assembly Demo
+
+Visit:
+
+[https://nativium.github.io/nativium-modules/](https://nativium.github.io/nativium-modules/)
+
 # Build for Linux
 
 Execute the following commands to build for Linux:
