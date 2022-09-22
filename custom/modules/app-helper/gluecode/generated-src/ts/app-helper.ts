@@ -38,6 +38,7 @@ export interface SecurityHelper {
 }
 export interface SecurityHelper_statics {
     generateUuidV4(): string;
+    generateHash(algorithm: string, value: string): string;
 }
 
 export interface AppHelper_statics {

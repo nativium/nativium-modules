@@ -1,10 +1,10 @@
 #include "ApplicationCoreImpl.hpp"
-#include "nativium/util/Logger.hpp"
-#include "nativium/net/http/HttpClient.hpp"
-#include "nativium/net/http/HttpClientLoggerImpl.hpp"
 #include "nativium/helper/CustomerHelper.hpp"
 #include "nativium/helper/DatabaseHelper.hpp"
 #include "nativium/helper/SharedDataHelper.hpp"
+#include "nativium/net/http/HttpClient.hpp"
+#include "nativium/net/http/HttpClientLoggerImpl.hpp"
+#include "nativium/util/Logger.hpp"
 
 #include "SQLiteCpp/SQLiteCpp.h"
 

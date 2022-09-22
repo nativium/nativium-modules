@@ -12,6 +12,8 @@ public:
     virtual ~SecurityHelper() = default;
 
     static std::string generateUuidV4();
+
+    static std::string generateHash(const std::string & algorithm, const std::string & value);
 };
 
 } }  // namespace nativium::helper

@@ -9,6 +9,8 @@ import java.util.concurrent.atomic.AtomicBoolean;
 public abstract class SecurityHelper {
     public static native String generateUuidV4();
 
+    public static native String generateHash(String algorithm, String value);
+
     public static final class CppProxy extends SecurityHelper
     {
         private final long nativeRef;

@@ -8,4 +8,7 @@
 
 + (nonnull NSString *)generateUuidV4;
 
++ (nonnull NSString *)generateHash:(nonnull NSString *)algorithm
+                             value:(nonnull NSString *)value;
+
 @end

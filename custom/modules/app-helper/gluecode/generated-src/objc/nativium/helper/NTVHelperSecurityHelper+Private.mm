@@ -37,6 +37,15 @@ static_assert(__has_feature(objc_arc), "Djinni requires ARC to be enabled for th
     } DJINNI_TRANSLATE_EXCEPTIONS()
 }
 
++ (nonnull NSString *)generateHash:(nonnull NSString *)algorithm
+                             value:(nonnull NSString *)value {
+    try {
+        auto objcpp_result_ = ::nativium::helper::SecurityHelper::generateHash(::djinni::String::toCpp(algorithm),
+                                                                               ::djinni::String::toCpp(value));
+        return ::djinni::String::fromCpp(objcpp_result_);
+    } DJINNI_TRANSLATE_EXCEPTIONS()
+}
+
 namespace djinni_generated {
 
 auto SecurityHelper::toCpp(ObjcType objc) -> CppType
