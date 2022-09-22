@@ -1,4 +1,4 @@
-from conans import ConanFile
+from conan import ConanFile
 from core import const as c
 
 
@@ -19,5 +19,5 @@ def configure(params={}):
 def requirements(params={}):
     conanfile: ConanFile = params["conanfile"]
 
-    conanfile.requires("sqlite3/3.39.2")
-    conanfile.requires("sqlitecpp/3.1.1")
+    conanfile.requires("sqlite3/3.39.3")
+    conanfile.requires("sqlitecpp/3.2.0")
