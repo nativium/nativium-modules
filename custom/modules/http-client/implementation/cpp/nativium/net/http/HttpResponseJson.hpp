@@ -1,52 +1,69 @@
 #pragma once
 
-#include "nativium/enumerator/CustomerStatusEnum.hpp"
 #include "nativium/helper/JsonHelper.hpp"
-#include "nativium/helper/NTVCustomerHelper.hpp"
+#include "nativium/net/http/HttpCookieJson.hpp"
+#include "nativium/net/http/HttpHeaderJson.hpp"
+#include "nativium/net/http/HttpRequestParamJson.hpp"
+#include "nativium/net/http/HttpResponse.hpp"
 #include "nlohmann/json.hpp"
 
 #include <string>
 #include <vector>
 
-using namespace nativium::domain;
+using namespace nativium::net::http;
 using namespace nativium::helper;
-using namespace nativium::enumerator;
 
 namespace nlohmann
 {
 template <>
-struct adl_serializer<Customer>
+struct adl_serializer<HttpResponse>
 {
-    static Customer from_json(const json &j)
+    static HttpResponse from_json(const json &j)
     {
-        auto o = NTVCustomerHelper::create();
+        auto o = HttpResponse{0, "", "", {}, {}};
 
-        o.id = JsonHelper::getInt64(j, "id");
-        o.name = JsonHelper::getString(j, "name");
-        o.token = JsonHelper::getString(j, "token");
+        o.url = JsonHelper::getString(j, "url");
+        o.code = JsonHelper::getInt32(j, "code");
+        o.body = JsonHelper::getString(j, "body");
 
-        // status
-        int32_t status = JsonHelper::getInt32(j, "status");
-
-        if (status == static_cast<int>(CustomerStatusEnum::ACTIVE))
+        // headers
+        if (j.contains("headers"))
         {
-            o.status = CustomerStatusEnum::ACTIVE;
+            try
+            {
+                o.headers = j["headers"].get<std::vector<HttpHeader>>();
+            }
+            catch (const std::exception &e)
+            {
+                // ignore
+            }
         }
-        else if (status == static_cast<int>(CustomerStatusEnum::INACTIVE))
+
+        // cookies
+        if (j.contains("cookies"))
         {
-            o.status = CustomerStatusEnum::INACTIVE;
+            try
+            {
+                o.cookies = j["cookies"].get<std::vector<HttpCookie>>();
+            }
+            catch (const std::exception &e)
+            {
+                // ignore
+            }
         }
 
         return o;
     }
 
-    static void to_json(json &j, Customer o)
+    static void to_json(json &j, HttpResponse o)
     {
         j = nlohmann::json{
-            {"id", o.id},
-            {"name", o.name},
-            {"token", o.token},
-            {"status", o.status},
+            {"url", o.url},
+            {"code", o.code},
+
+            {"body", o.body},
+            {"headers", o.headers},
+            {"cookies", o.cookies},
         };
     }
 };

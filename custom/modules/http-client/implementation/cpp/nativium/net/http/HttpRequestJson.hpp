@@ -113,9 +113,10 @@ struct adl_serializer<HttpRequest>
             {"url", o.url},
             {"method", o.method},
             {"params", o.params},
+            {"body", o.body},
             {"headers", o.headers},
             {"cookies", o.cookies},
-            {"body", o.body},
+
         };
     }
 };
