@@ -6,6 +6,9 @@
 #include "openssl/rsa.h"
 
 #include <cstdio>
+#include <iomanip>
+#include <iostream>
+#include <sstream>
 #include <string>
 #include <vector>
 
@@ -47,6 +50,36 @@ std::string SecurityHelper::generateUuidV4()
              uuid.node[3], uuid.node[4], uuid.node[5]);
 
     return std::string(buffer.data());
+}
+
+std::string SecurityHelper::generateHash(const std::string &algorithm, const std::string &value)
+{
+    EVP_MD_CTX *mdctx = EVP_MD_CTX_new();
+    const EVP_MD *md;
+
+    unsigned char mdValue[EVP_MAX_MD_SIZE];
+    unsigned int mdLength = 0;
+
+    md = EVP_get_digestbyname(algorithm.c_str());
+
+    if (md != nullptr)
+    {
+        EVP_MD_CTX_init(mdctx);
+        EVP_DigestInit_ex(mdctx, md, nullptr);
+        EVP_DigestUpdate(mdctx, value.c_str(), value.size());
+        EVP_DigestFinal_ex(mdctx, mdValue, &mdLength);
+    }
+
+    EVP_MD_CTX_free(mdctx);
+
+    std::stringstream ss;
+
+    for (int i = 0; i < mdLength; i++)
+    {
+        ss << std::hex << std::setw(2) << std::setfill('0') << static_cast<int>(mdValue[i]);
+    }
+
+    return ss.str();
 }
 
 } // namespace helper

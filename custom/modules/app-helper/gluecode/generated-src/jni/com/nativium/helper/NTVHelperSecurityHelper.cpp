@@ -26,4 +26,13 @@ CJNIEXPORT jstring JNICALL Java_com_nativium_helper_SecurityHelper_generateUuidV
     } JNI_TRANSLATE_EXCEPTIONS_RETURN(jniEnv, 0 /* value doesn't matter */)
 }
 
+CJNIEXPORT jstring JNICALL Java_com_nativium_helper_SecurityHelper_generateHash(JNIEnv* jniEnv, jobject /*this*/, jstring j_algorithm, jstring j_value)
+{
+    try {
+        auto r = ::nativium::helper::SecurityHelper::generateHash(::djinni::String::toCpp(jniEnv, j_algorithm),
+                                                                  ::djinni::String::toCpp(jniEnv, j_value));
+        return ::djinni::release(::djinni::String::fromCpp(jniEnv, r));
+    } JNI_TRANSLATE_EXCEPTIONS_RETURN(jniEnv, 0 /* value doesn't matter */)
+}
+
 }  // namespace djinni_generated

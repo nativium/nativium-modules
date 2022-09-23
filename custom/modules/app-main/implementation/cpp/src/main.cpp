@@ -47,6 +47,7 @@ int main(int argc, char **argv)
 
 #include "nativium/helper/CustomerHelper.hpp"
 #include "nativium/helper/EnvironmentHelper.hpp"
+#include "nativium/helper/SecurityHelper.hpp"
 #include "nativium/helper/TodoHelper.hpp"
 #include "nativium/text/StringHelper.hpp"
 
@@ -256,6 +257,18 @@ int main(int argc, char **argv)
         {
             httpServer->waitForTermination();
         }
+    }
+
+    // security
+    {
+        auto md5 = SecurityHelper::generateHash("md5", "Nativium Modules");
+        Logger::d("MD5: " + md5);
+
+        auto sha256 = SecurityHelper::generateHash("sha256", "Nativium Modules");
+        Logger::d("SHA256: " + sha256);
+
+        auto ripemd160 = SecurityHelper::generateHash("ripemd160", "Nativium Modules");
+        Logger::d("RIPEMD160: " + ripemd160);
     }
 
     // version

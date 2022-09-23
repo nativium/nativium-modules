@@ -24,6 +24,7 @@ struct NTVHelperSecurityHelper : ::djinni::JsInterface<::nativium::helper::Secur
     static em::val cppProxyMethods();
 
     static std::string generateUuidV4();
+    static std::string generateHash(const std::string& w_algorithm,const std::string& w_value);
 
 };
 

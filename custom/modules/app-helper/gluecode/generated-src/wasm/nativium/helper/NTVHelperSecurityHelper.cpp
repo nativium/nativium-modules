@@ -20,12 +20,23 @@ std::string NTVHelperSecurityHelper::generateUuidV4() {
         return djinni::ExceptionHandlingTraits<::djinni::String>::handleNativeException(e);
     }
 }
+std::string NTVHelperSecurityHelper::generateHash(const std::string& w_algorithm,const std::string& w_value) {
+    try {
+        auto r = ::nativium::helper::SecurityHelper::generateHash(::djinni::String::toCpp(w_algorithm),
+                     ::djinni::String::toCpp(w_value));
+        return ::djinni::String::fromCpp(r);
+    }
+    catch(const std::exception& e) {
+        return djinni::ExceptionHandlingTraits<::djinni::String>::handleNativeException(e);
+    }
+}
 
 EMSCRIPTEN_BINDINGS(nativium_helper_security_helper) {
     em::class_<::nativium::helper::SecurityHelper>("SecurityHelper")
         .smart_ptr<std::shared_ptr<::nativium::helper::SecurityHelper>>("SecurityHelper")
         .function("nativeDestroy", &NTVHelperSecurityHelper::nativeDestroy)
         .class_function("generateUuidV4", NTVHelperSecurityHelper::generateUuidV4)
+        .class_function("generateHash", NTVHelperSecurityHelper::generateHash)
         ;
 }
 

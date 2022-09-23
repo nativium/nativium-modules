@@ -27,4 +27,5 @@ shared_data_helper = interface +c {
 
 security_helper = interface +c {
     static generate_uuid_v4(): string;
+    static generate_hash(algorithm: string, value: string): string;
 }
