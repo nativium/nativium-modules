@@ -60,7 +60,6 @@ struct adl_serializer<HttpResponse>
         j = nlohmann::json{
             {"url", o.url},
             {"code", o.code},
-
             {"body", o.body},
             {"headers", o.headers},
             {"cookies", o.cookies},
