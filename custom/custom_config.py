@@ -1,4 +1,5 @@
 import os
+import textwrap
 
 
 # -----------------------------------------------------------------------------
@@ -92,6 +93,11 @@ def run(params):
             "target": os.path.join("modules", "string-helper"),
         },
         {
+            "type": "copy-file",
+            "source": "cmake/dependencies.cmake",
+            "target": "cmake/dependencies.cmake",
+        },
+        {
             "type": "replace-text",
             "path": "core/const.py",
             "list": [
@@ -113,29 +119,32 @@ def run(params):
         },
         {
             "type": "replace-text",
-            "path": "targets/wasm/config/target.py",
+            "path": "CMakeLists.txt",
             "list": [
                 {
-                    "old": 'has_debug = True',
-                    "new": 'has_debug = False',
-                },
-            ],
-        },
-        {
-            "type": "replace-text",
-            "path": "targets/wasm/cmake/target.cmake",
-            "list": [
-                {
-                    "old": 'set(NATIVIUM_WASM_C_FLAGS "")',
-                    "new": 'set(NATIVIUM_WASM_C_FLAGS "-fwasm-exceptions")',
+                    "old": 'set(NATIVIUM_C_FLAGS "-Wall" CACHE STRING "Custom C Flags")',
+                    "new": textwrap.dedent("""\
+                    if(NATIVIUM_TARGET STREQUAL "wasm")
+                        set(NATIVIUM_C_FLAGS "-Wall -fwasm-exceptions" CACHE STRING "Custom C Flags")
+                    else()
+                        set(NATIVIUM_C_FLAGS "-Wall" CACHE STRING "Custom C Flags")
+                    endif()
+                    """)
                 },
                 {
-                    "old": 'set(NATIVIUM_WASM_CXX_FLAGS "")',
-                    "new": 'set(NATIVIUM_WASM_CXX_FLAGS "-fwasm-exceptions")',
+                    "old": 'set(NATIVIUM_CXX_FLAGS "-Wall" CACHE STRING "Custom CXX Flags")',
+                    "new": textwrap.dedent("""\
+                    if(NATIVIUM_TARGET STREQUAL "wasm")
+                        set(NATIVIUM_CXX_FLAGS "-Wall -fwasm-exceptions" CACHE STRING "Custom CXX Flags")
+                    else()
+                        set(NATIVIUM_CXX_FLAGS "-Wall" CACHE STRING "Custom CXX Flags")
+                    endif()
+                    """)
                 },
                 {
-                    "old": '"--bind -s MALLOC=emmalloc -s WASM_BIGINT=1"',
-                    "new": "\"--bind -s MALLOC=emmalloc -s WASM_BIGINT=1 -fwasm-exceptions -sMODULARIZE -s EXPORT_ES6=1 -s EXPORTED_RUNTIME_METHODS=['FS']\"",
+                    "old": 'set(NATIVIUM_WASM_LINK_FLAGS "--bind -s MALLOC=emmalloc -s WASM_BIGINT=1")',
+                    "new": textwrap.dedent("""\
+                    set(NATIVIUM_WASM_LINK_FLAGS "--bind -s MALLOC=emmalloc -s WASM_BIGINT=1 -fwasm-exceptions -sMODULARIZE -s EXPORT_ES6=1 -s EXPORTED_RUNTIME_METHODS=['FS']")"""),
                 },
             ],
         },
