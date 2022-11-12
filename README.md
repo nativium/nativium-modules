@@ -19,7 +19,7 @@
 
 <br>
 
-<p align="center">This is a group of Nativium modules ready to use in production.</p>
+<p align="center">This is a group of Nativium Modules ready to use in production.</p>
 
 <br>
 
