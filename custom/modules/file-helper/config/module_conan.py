@@ -48,5 +48,5 @@ def requirements(params={}):
     conanfile: ConanFile = params["conanfile"]
 
     if conanfile.settings.os != "Emscripten":
-        conanfile.requires("openssl/1.1.1q")
+        conanfile.requires("openssl/1.1.1s")
         conanfile.requires("poco/1.12.2")
