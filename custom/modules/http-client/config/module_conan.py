@@ -47,7 +47,7 @@ def configure(params={}):
 def requirements(params={}):
     conanfile: ConanFile = params["conanfile"]
 
-    conanfile.requires("nlohmann_json/3.12.0")
+    # conanfile.requires("nlohmann_json/3.12.0")
 
     if conanfile.settings.os != "Emscripten":
         conanfile.requires("openssl/1.1.1w")
