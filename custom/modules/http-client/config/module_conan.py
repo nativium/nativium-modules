@@ -50,5 +50,5 @@ def requirements(params={}):
     # conanfile.requires("nlohmann_json/3.12.0")
 
     if conanfile.settings.os != "Emscripten":
-        conanfile.requires("openssl/1.1.1w")
-        # conanfile.requires("poco/1.14.2")
+        # conanfile.requires("openssl/1.1.1w")
+        conanfile.requires("poco/1.14.2")
