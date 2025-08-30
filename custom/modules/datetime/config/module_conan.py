@@ -12,4 +12,4 @@ def configure(params={}):
 def requirements(params={}):
     conanfile: ConanFile = params["conanfile"]
 
-    conanfile.requires("date/3.0.1")
+    conanfile.requires("date/3.0.4")
