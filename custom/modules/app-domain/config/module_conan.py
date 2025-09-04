@@ -10,4 +10,4 @@ def configure(params={}):
 def requirements(params={}):
     conanfile: ConanFile = params["conanfile"]
 
-    conanfile.requires("nlohmann_json/3.11.2")
+    conanfile.requires("nlohmann_json/3.12.0")

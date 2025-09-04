@@ -19,5 +19,5 @@ def configure(params={}):
 def requirements(params={}):
     conanfile: ConanFile = params["conanfile"]
 
-    conanfile.requires("sqlite3/3.39.4")
-    conanfile.requires("sqlitecpp/3.2.0")
+    conanfile.requires("sqlite3/3.50.4")
+    conanfile.requires("sqlitecpp/3.3.2")
